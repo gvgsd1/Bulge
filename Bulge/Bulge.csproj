@@ -24,10 +24,10 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <Compile Remove="Slider\CreateGHNumberSlider.cs" />
-    <Compile Remove="Slider\MyComponent1.cs" />
-    <Compile Remove="Slider\MySimpleIntegerParameter.cs" />
-    <Compile Remove="Slider\MySimpleIntegerParameterAttributes.cs" />
+    <Compile Remove="Params\CreateGHNumberSlider.cs" />
+    <Compile Remove="Params\MyComponent1.cs" />
+    <Compile Remove="Params\MySimpleIntegerParameter.cs" />
+    <Compile Remove="Params\MySimpleIntegerParameterAttributes.cs" />
   </ItemGroup>
   
   <ItemGroup>
