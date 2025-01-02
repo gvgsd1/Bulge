@@ -1,0 +1,2678 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Galapagos</name>
+    </assembly>
+    <members>
+        <member name="T:Galapagos.Form1">
+            <summary>
+            Form used to debug Galapagos Controls.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Galapagos.Form1.#ctor">
+            <summary>
+            Create a new instance of Form1.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Form1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Form1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Galapagos.Form1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.GP_GenomeEventArgs">
+            <summary>
+            Event raised whenever the selected genome in a UI element changes.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.GP_GenomeEventArgs.GenomeChangedEventHandler">
+            <summary>
+            Event delegate for the GenomeEventArgs.
+            </summary>
+            <param name="sender">Control that raised the event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeEventArgs.SelectedIndex">
+            <summary>
+            Gets the index of the selected Genome.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeEventArgs.SelectedGenome">
+            <summary>
+            Gets the index of the selected Genome.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.GP_AnnealingTrackDisplay">
+            <summary>
+            Display the history of an Annealing Track on screen.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_AnnealingTrackDisplay.#ctor">
+            <summary>
+            Create a new instance of the GP_AnnealingTrackDisplay control.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_AnnealingTrackDisplay.History">
+            <summary>
+            Gets or sets the annealing history to display.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_AnnealingTrackDisplay.LogScale">
+            <summary>
+            Gets or sets the Logarthmic deformation scale for this control.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_AnnealingTrackDisplay.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            OnPaintBackground override.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_AnnealingTrackDisplay.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            OnPaint override.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.GP_AnnealingTrackDisplay.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_AnnealingTrackDisplay.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_AnnealingTrackDisplay.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.GP_Banner">
+            <summary>
+            Galapagos Banner form.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Galapagos.GUI.GP_Banner.#ctor">
+            <summary>
+            Banner constructor.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_Banner.KillBanner">
+            <summary>
+            Hide the banner.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_Banner.ShowBanner">
+            <summary>
+            Display the Galapagos banner.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_Banner.ShowBanner(System.Windows.Forms.IWin32Window)">
+            <summary>
+            Display the banner as a child of another Window.
+            </summary>
+            <param name="parent">Owner window.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_Banner.ShowBanner(System.Int32)">
+            <summary>
+            Display the banner for a given period of time.
+            </summary>
+            <param name="milliseconds">Number of milliseconds to display the banner for.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_Banner.ShowBanner(System.Windows.Forms.IWin32Window,System.Int32)">
+            <summary>
+            Display the banner for a given period of time.
+            </summary>
+            <param name="parent">Owner window.</param>
+            <param name="milliseconds">Number of milliseconds to display the banner for.</param>
+        </member>
+        <member name="F:Galapagos.GUI.GP_Banner.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_Banner.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_Banner.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomePainter.#ctor">
+            <summary>
+            This class only exposes static methods and cannot be instantiated.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.GP_GenomePainter.color0">
+            <summary>
+            Represents the colour to use for low relative gene values.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.GP_GenomePainter.color1">
+            <summary>
+            Represents the colour to use for high relative gene values.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomePainter.Paint(Galapagos.Solvers.GP_Genome,System.Drawing.Size)">
+            <summary>
+            Paint a Genome capsule into a bitmap.
+            </summary>
+            <param name="genome">Genome to paint.</param>
+            <param name="target">Size of bitmap.</param>
+            <returns>A bitmap containing the genome capsule.</returns>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomePainter.Paint(Galapagos.Solvers.GP_Genome,System.Drawing.Rectangle,System.Drawing.Graphics)">
+            <summary>
+            Paint a Genome capsule into a graphics context.
+            </summary>
+            <param name="genome">Genome to paint.</param>
+            <param name="target">Size of bitmap.</param>
+            <param name="G">Graphics object to draw with.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomePainter.PaintCapsuleShading(System.Drawing.Graphics,System.Drawing.Rectangle)">
+            <summary>
+            Paint shaded background.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomePainter.PaintCapsuleEdges(System.Drawing.Graphics,System.Drawing.Drawing2D.GraphicsPath)">
+            <summary>
+            Paint darkening around edges and the edge itself.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomePainter.PaintSegments(System.Drawing.Graphics,Galapagos.Solvers.GP_Genome,System.Drawing.Rectangle)">
+            <summary>
+            Paint the genes in the genome.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.GP_GenomeList">
+            <summary>
+            Display a set of genomes in a sorted list.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeList.#ctor">
+            <summary>
+            Create a new instance of the GP_GenomeList control.
+            </summary>
+        </member>
+        <member name="E:Galapagos.GUI.GP_GenomeList.SelectionChanged">
+            <summary>
+            Raised whenever the selected genome inside this PopulationGraph is changed by the user.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeList.Genomes">
+            <summary>
+            Gets the genome displayed in this control.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeList.SelectedIndex">
+            <summary>
+            Gets or sets the selected index in this population.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeList.SelectedGenome">
+            <summary>
+            Gets or sets the selected genome.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeList.MaxCount">
+            <summary>
+            Gets or sets the maximum number of genomes displayed in this list. 
+            Use -1 to not enforce the limit.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeList.Clear">
+            <summary>
+            Clear the genomes currently on display.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeList.AddGenome(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Add a Genome to this control.
+            </summary>
+            <param name="genome">Genome to add.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeList.AddGenome(System.Collections.Generic.IEnumerable{Galapagos.Solvers.GP_Genome})">
+            <summary>
+            Add a collection of Genomes to this control.
+            </summary>
+            <param name="genomes">Genome to add.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeList.GenomeBox(System.Int32)">
+            <summary>
+            Gets the display box for the genome at the given index. 
+            The genome boxes are only defined after a successful paint operation.
+            </summary>
+            <param name="index">Index of item, may be invalid.</param>
+            <returns>The rectangle of the item at the given index or Rectangle.Empty.</returns>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeList.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Override for OnPaintBackground.
+            </summary>
+            <param name="e">Paint event arguments.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeList.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Override for OnPaint.
+            </summary>
+            <param name="e">Paint event arguments.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeList.IsInputKey(System.Windows.Forms.Keys)">
+            <summary>
+            IsInputKey is overridden in this control as Arrow keys need to be handled.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.GP_GenomeList.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeList.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeList.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.GP_GenomeMap">
+            <summary>
+            Displays the genomes in a population in a 2D grid.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeMap.#ctor">
+            <summary>
+            Create a new instance of the GP_GenomeMap control.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeMap.Genomes">
+            <summary>
+            Gets the genomes displayed in this control.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeMap.SetGenomes(System.Collections.Generic.IEnumerable{Galapagos.Solvers.GP_Genome})">
+            <summary>
+            Set the genomes displayed in this map. 
+            Once you set a collection of genomes, the particle solver kicks in.
+            </summary>
+            <param name="genomes">Genomes to set.</param>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeMap.GenomeRadius">
+            <summary>
+            Gets or sets the radius for genome dots.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeMap.Iterations">
+            <summary>
+            Gets or sets the number of iterations to apply to the Particle Solver.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeMap.DistanceWeight">
+            <summary>
+            Gets or sets the distance weighting factor to apply to the particle distribution. 
+            A value of 1.0 equals no special weighting, values between 0.1 and 1.0 result in a 
+            very distributed cloud. Small values (0.0001 ~ 0.05) result in small sub-clusters.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeMap.GraphRegion">
+            <summary>
+            Gets the area within which the graph is drawn.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeMap.Clear">
+            <summary>
+            Remove all genome data from this control.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeMap.CreateGenomeMap">
+            <summary>
+            Create a new genome map for the currently loaded population.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.GP_GenomeMap.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeMap.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeMap.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.Particles.GP_ParticleSystem">
+            <summary>
+            A particle system can be used to solve particle distributions.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="T:Galapagos.GUI.Particles.GP_ParticleSystem.Solution">
+            <summary>
+            Delegate for intermediate system solutions. This delegate must be threadsafe.
+            </summary>
+            <param name="particles">A thread-safe copy of the particle position at the time of the callback.</param>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_ParticleSystem.ResetSystem">
+            <summary>
+            Reset the system and any running solver threads.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_ParticleSystem.PopulateSystem(System.Int32)">
+            <summary>
+            Reset the system and any running solver threads and recreate a new random particle cloud.
+            </summary>
+            <param name="size">Number of random particles in the system.</param>
+        </member>
+        <member name="P:Galapagos.GUI.Particles.GP_ParticleSystem.Count">
+            <summary>
+            Gets the number of particles this system contains.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.Particles.GP_ParticleSystem.Particles">
+            <summary>
+            Gets a reference to the internal particle array. 
+            If a threaded solver is currently running, this array might be modified at any time.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_ParticleSystem.SetParticle(System.Int32,System.Double,System.Double)">
+            <summary>
+            Set the coordinates of a specific particle. 
+            By default particles are placed randomly so you don't 
+            <i>have</i> to set them if you don't want to.
+            </summary>
+            <param name="index">Index of particle to set.</param>
+            <param name="x">X coordinate of particle.</param>
+            <param name="y">Y coordinate of particle.</param>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_ParticleSystem.AddParticleNoise(System.Double)">
+            <summary>
+            Add random noise to all particles.
+            </summary>
+            <param name="factor">Factor of particle bounding box diagonal 
+            as indication for noise magnitude.</param>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_ParticleSystem.SetDistance(System.Int32,System.Int32,System.Double)">
+            <summary>
+            Set the distance relationship between a particle-pair.
+            </summary>
+            <param name="index0">Index of first particle.</param>
+            <param name="index1">Index of second particle.</param>
+            <param name="distance">Distance relationship.</param>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_ParticleSystem.NormaliseDistanceMatrix(System.Double)">
+            <summary>
+            Normalise all distances. Only call this function once all distances have been set.
+            </summary>
+            <param name="distance_weight">Weight to apply to distances after normalisation.</param>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_ParticleSystem.DisplayDistance">
+            <summary>
+            Display the distance matrix in a messagebox.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_ParticleSystem.SolveDistribution(System.Double,System.Double)">
+            <summary>
+            Apply a single iteration to the system.
+            </summary>
+            <param name="attraction_damping">Damping factor to apply to attration forces.</param>
+            <param name="repulsion_damping">Damping factor to apply to repulsion forces.</param>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_ParticleSystem.SolveDistribution(System.Int32,System.Int32,System.Windows.Forms.Control,Galapagos.GUI.Particles.GP_ParticleSystem.Solution)">
+            <summary>
+            Start a threaded solution with intermediate callbacks. If a threaded solution is already running, 
+            it will be aborted.
+            </summary>
+            <param name="target_iterations">Maximum number of iterations until the solution is 'finished'.</param>
+            <param name="refresh_rate">Number of milliseconds (appoximately) between callbacks.</param>
+            <param name="consumer">The control which will consume the solution events. 
+            This argument is required in order to maintain thread safety.</param>
+            <param name="callback">Callback delegate.</param>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_ParticleSystem.KillThread">
+            <summary>
+            Kill the current solver thread.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_ParticleSystem.ThreadedSolver">
+            <summary>
+            Delegate used to thread particle solutions.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.Particles.GP_Vector">
+            <summary>
+            Represents a force vector in the two-dimensional plane.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="F:Galapagos.GUI.Particles.GP_Vector.X">
+            <summary>
+            X component of vector.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.Particles.GP_Vector.Y">
+            <summary>
+            Y component of vector.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_Vector.#ctor(System.Double,System.Double)">
+            <summary>
+            Create a new vector with set components.
+            </summary>
+            <param name="nX">Initial X component of vector.</param>
+            <param name="nY">Initial Y component of vector.</param>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_Vector.#ctor(Galapagos.GUI.Particles.GP_Vector)">
+            <summary>
+            Copy an existing vector.
+            </summary>
+            <param name="other">Vector to mimic.</param>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_Vector.op_Addition(Galapagos.GUI.Particles.GP_Vector,Galapagos.GUI.Particles.GP_Vector)">
+            <summary>
+            Perform addition on two vectors.
+            </summary>
+            <param name="a">First vector.</param>
+            <param name="b">Second vector.</param>
+            <returns>The summation of A and B.</returns>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_Vector.op_Subtraction(Galapagos.GUI.Particles.GP_Vector,Galapagos.GUI.Particles.GP_Vector)">
+            <summary>
+            Perform subtraction on two vectors.
+            </summary>
+            <param name="a">First vector.</param>
+            <param name="b">Second vector.</param>
+            <returns>The subtraction of A and B.</returns>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_Vector.op_Multiply(Galapagos.GUI.Particles.GP_Vector,System.Double)">
+            <summary>
+            Perform vector/scalar multiplication.
+            </summary>
+            <param name="a">Vector.</param>
+            <param name="f">Multipication factor</param>
+            <returns>The summation of A and B.</returns>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_Vector.op_Multiply(System.Double,Galapagos.GUI.Particles.GP_Vector)">
+            <summary>
+            Perform vector/scalar multiplication.
+            </summary>
+            <param name="a">Vector.</param>
+            <param name="f">Multipication factor</param>
+            <returns>The summation of A and B.</returns>
+        </member>
+        <member name="P:Galapagos.GUI.Particles.GP_Vector.Length">
+            <summary>
+            Gets the length of this vector.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.Particles.GP_Vector.LengthSquared">
+            <summary>
+            Gets the squared length of this vector.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.Particles.GP_Vector.Normalise">
+            <summary>
+            Normalise the vector.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.GP_GenomeGraph">
+            <summary>
+            Displays a bunch of genomes as a collection of MD point graphs.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeGraph.#ctor">
+            <summary>
+            Create a new instance of the GP_GenomeGraph control.
+            </summary>
+        </member>
+        <member name="E:Galapagos.GUI.GP_GenomeGraph.SelectionChanged">
+            <summary>
+            Raised whenever the selected genome inside this PopulationGraph is changed by the user.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeGraph.Genomes">
+            <summary>
+            Gets the genomes that are on display.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeGraph.SelectedGenome">
+            <summary>
+            Gets or sets the selected genome in this control.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeGraph.SelectedIndex">
+            <summary>
+            Gets or sets the index of the selected genome.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeGraph.PopulationLimitEdge">
+            <summary>
+            Gets or sets the Population limit edge colour.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeGraph.PopulationLimitFill">
+            <summary>
+            Gets or sets the Population limit fill colour.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeGraph.SelectedGraph">
+            <summary>
+            Gets or sets the Selected graph colour.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeGraph.SelectedBlur">
+            <summary>
+            Gets or sets the Selected blur colour.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_GenomeGraph.GraphRegion">
+            <summary>
+            Gets the rectangle that contains the graph.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeGraph.Clear">
+            <summary>
+            Clear the population currently on display.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeGraph.AddGenome(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Add a genome to this display.
+            </summary>
+            <param name="genome">Genome to add.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeGraph.AddGenome(System.Collections.Generic.IEnumerable{Galapagos.Solvers.GP_Genome})">
+            <summary>
+            Add a collection of genomes to this control.
+            </summary>
+            <param name="genomes">Genomes to add.</param>
+        </member>
+        <member name="F:Galapagos.GUI.GP_GenomeGraph.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeGraph.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GenomeGraph.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.GP_SelectedIndexEventArgs">
+            <summary>
+            Event arguments used during selected index changes.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_SelectedIndexEventArgs.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Create a new instance of the GP_SelectedIndexEventArgs class with a specific index.
+            </summary>
+            <param name="index0">Start index.</param>
+            <param name="index1">End index.</param>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SelectedIndexEventArgs.SelectedIndex0">
+            <summary>
+            Gets the start of the selection.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SelectedIndexEventArgs.SelectedIndex1">
+            <summary>
+            Gets the end of the selection.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SelectedIndexEventArgs.SelectedCount">
+            <summary>
+            Gets the number of selected generations.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SelectedIndexEventArgs.IsSelection">
+            <summary>
+            Gets a value describing whether or not a valid selection is defined.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.GP_SpeciesStatistics">
+            <summary>
+            Displays a set of population statistics.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_SpeciesStatistics.#ctor">
+            <summary>
+            Create a new instance of the GP_SpeciesStatistics control.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.GP_SpeciesStatistics.SelectedIndexChangedEventHandler">
+            <summary>
+            Delegate used for the SelectedIndexChanged event.
+            </summary>
+            <param name="sender">Control that raises the event.</param>
+            <param name="e">Selection event arguments.</param>
+        </member>
+        <member name="E:Galapagos.GUI.GP_SpeciesStatistics.SelectedIndexChanged">
+            <summary>
+            This event is raised whenever the SelectedIndex property of this control changes.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_SpeciesStatistics.OnSelectedIndexChanged">
+            <summary>
+            Raise the SelectedIndexChanged event with the current index.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SpeciesStatistics.SelectedIndex0">
+            <summary>
+            Gets the selection index start. If no selection is defined, the index will be -1.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SpeciesStatistics.SelectedIndex1">
+            <summary>
+            Gets the selection index end. If no selection is defined, the index will be -1.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SpeciesStatistics.FirstGeneration">
+            <summary>
+            Gets or sets the number of the first generation to display.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SpeciesStatistics.LogScale">
+            <summary>
+            Gets or sets the Logarthmic deformation scale for this control.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SpeciesStatistics.PanOffset">
+            <summary>
+            Gets or sets the pan offset for this control. 
+            The pan offset it automatically limites by the Generation Bars.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_SpeciesStatistics.ShiftSelection(System.Int32)">
+            <summary>
+            Shift the entire selection a number of generations.
+            </summary>
+            <param name="i">Number of generations to shift. Positive values for i shift the selection towards the right.</param>
+            <returns>True if selection was changed, false if not.</returns>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SpeciesStatistics.GraphEdge">
+            <summary>
+            Gets or sets the Graph edge colour.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SpeciesStatistics.GraphDeviation">
+            <summary>
+            Gets or sets the Graph deviation colour.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SpeciesStatistics.GraphPopulation">
+            <summary>
+            Gets or sets the Graph population colour.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SpeciesStatistics.GraphEdgeSelected">
+            <summary>
+            Gets or sets the Graph edge colour.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SpeciesStatistics.GraphDeviationSelected">
+            <summary>
+            Gets or sets the Graph deviation colour.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_SpeciesStatistics.GraphPopulationSelected">
+            <summary>
+            Gets or sets the Graph population colour.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_SpeciesStatistics.SetStatistics(System.Collections.Generic.List{Galapagos.Solvers.Evolution.IGP_FitnessStatistics})">
+            <summary>
+            Set a new statistics list.
+            </summary>
+            <param name="statistics">Statistics to load into this control.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_SpeciesStatistics.GetStatistics">
+            <summary>
+            Get the statistics that are loaded in this control.
+            </summary>
+            <returns>The statistics that belong to this control.</returns>
+        </member>
+        <member name="M:Galapagos.GUI.GP_SpeciesStatistics.Clear">
+            <summary>
+            Remove all statistics.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_SpeciesStatistics.SetSelection(System.Int32)">
+            <summary>
+            Set a selection index.
+            </summary>
+            <param name="index">Generation index to select.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_SpeciesStatistics.SetSelection(System.Int32,System.Int32)">
+            <summary>
+            Set a selection domain.
+            </summary>
+            <param name="index0">Index of first bar to select.</param>
+            <param name="index1">Index of last bar to select.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_SpeciesStatistics.IsInputKey(System.Windows.Forms.Keys)">
+            <summary>
+            This control handles the arrow keys itself.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.GP_SpeciesStatistics.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_SpeciesStatistics.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_SpeciesStatistics.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.GP_SpeciesStatisticsFocus">
+            <summary>
+            Represents all focus modes for the GP_SpeciesStatistics control.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.GP_SpeciesStatisticsFocus.all">
+            <summary>
+            Display all bars.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.GP_SpeciesStatisticsFocus.last_10">
+            <summary>
+            Display only the 10 most recent bars.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.GP_SpeciesStatisticsFocus.last_20">
+            <summary>
+            Display only the 20 most recent bars.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.GP_SpeciesStatisticsFocus.last_50">
+            <summary>
+            Display only the 50 most recent bars.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.GP_SpeciesStatisticsFocus.last_100">
+            <summary>
+            Display only the 100 most recent bars.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GUI.GP_GUI">
+            <summary>
+            Provides static utility methods for creating GUI shapes.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GUI.#ctor">
+            <summary>
+            This class cannot be constructed.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="F:Galapagos.GUI.GP_GUI.UseBogusDataInGUI">
+            <summary>
+            If True, GUI objects will populate themselves with bogus data so you can see them in action.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GUI.SolveStatisticsUI(System.Double,System.Double,Galapagos.Solvers.Evolution.IGP_FitnessStatistics,System.Drawing.Rectangle,System.Double,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@)">
+            <summary>
+            Solve the GUI Rectangles for a specific statistics setup.
+            </summary>
+            <param name="global_min">Global minimum.</param>
+            <param name="global_max">Global maximum.</param>
+            <param name="stats">Local statistics.</param>
+            <param name="area">Available area for statistics bar.</param>
+            <param name="log_scale">Logarithmic deformation of graph. 
+            A value of 1.0 equals no deformation.</param>
+            <param name="rec_pop">Resulting Population rectangle.</param>
+            <param name="rec_dev">Resulting Deviation rectangle.</param>
+            <param name="rec_avg">Resulting Average rectangle.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GUI.SolveStatisticsUI(System.Double,System.Double,Galapagos.Solvers.Evolution.IGP_FitnessStatistics,System.Int32,System.Int32,System.Double,System.Int32@,System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Solve the GUI Rectangles for a specific statistics setup.
+            </summary>
+            <param name="global_min">Global minimum.</param>
+            <param name="global_max">Global maximum.</param>
+            <param name="stats">Local statistics.</param>
+            <param name="area_top">Top coordinate of available area.</param>
+            <param name="area_bottom">Bottom coordinate of available area.</param>
+            <param name="log_scale">Logarithmic deformation of graph. 
+            A value of 1.0 equals no deformation.</param>
+            <param name="y_pop0">Resulting bottom offset of population column.</param>
+            <param name="y_pop1">Resulting top offset of population column.</param>
+            <param name="y_dev0">Resulting bottom offset of deviation column.</param>
+            <param name="y_dev1">Resulting top offset of deviation column.</param>
+            <param name="y_avrg">Resulting offset of average line.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GUI.SolveStatisticsUI(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Drawing.Rectangle,System.Double,System.Drawing.Rectangle@,System.Drawing.Rectangle@,System.Drawing.Rectangle@)">
+            <summary>
+            Solve the GUI Rectangles for a specific statistics setup.
+            </summary>
+            <param name="global_min">Global minimum.</param>
+            <param name="global_max">Global maximum.</param>
+            <param name="local_min">Local minimum.</param>
+            <param name="local_max">Local maximum.</param>
+            <param name="local_dev">Local deviation.</param>
+            <param name="local_avg">Local average.</param>
+            <param name="area">Available area for statistics bar.</param>
+            <param name="log_scale">Logarithmic deformation of graph. 
+            A value of 1.0 equals no deformation.</param>
+            <param name="rec_pop">Resulting Population rectangle.</param>
+            <param name="rec_dev">Resulting Deviation rectangle.</param>
+            <param name="rec_avg">Resulting Average rectangle.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_GUI.SolveStatisticsUI(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Double,System.Int32@,System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Solve the GUI Rectangles for a specific statistics setup.
+            </summary>
+            <param name="global_min">Global minimum.</param>
+            <param name="global_max">Global maximum.</param>
+            <param name="local_min">Local minimum.</param>
+            <param name="local_max">Local maximum.</param>
+            <param name="local_dev">Local deviation.</param>
+            <param name="local_avg">Local average.</param>
+            <param name="area_top">Upper y coordinate of available range.</param>
+            <param name="area_bottom">Lower y coordinate of available range.</param>
+            <param name="log_scale">Logarithmic deformation of graph. 
+            A value of 1.0 equals no deformation.</param>
+            <param name="y_pop0">Resulting bottom offset of population column.</param>
+            <param name="y_pop1">Resulting top offset of population column.</param>
+            <param name="y_dev0">Resulting bottom offset of deviation column.</param>
+            <param name="y_dev1">Resulting top offset of deviation column.</param>
+            <param name="y_avrg">Resulting offset of average line.</param>
+        </member>
+        <member name="T:Galapagos.GUI.GP_TemperatureStatistics">
+            <summary>
+            Display some infomation about a specific temperature.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_TemperatureStatistics.#ctor">
+            <summary>
+            Create a new instance of te GP_TemperatureStatistics control.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GUI.GP_TemperatureStatistics.Temperature">
+            <summary>
+            Gets or sets the temperature (0~100%).
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_TemperatureStatistics.OnPaintBackground(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Override for OnPaintBackground.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_TemperatureStatistics.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Override for OnPaint.
+            </summary>
+        </member>
+        <member name="F:Galapagos.GUI.GP_TemperatureStatistics.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GUI.GP_TemperatureStatistics.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Galapagos.GUI.GP_TemperatureStatistics.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.Annealing.GP_Track">
+            <summary>
+            Represents a single Annealing Track.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_Track.Count">
+            <summary>
+            gets the total number of genomes contained in this track.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_Track.Genomes">
+            <summary>
+            Gets a copy of the list of all the Genomes in this Track. 
+            Do not alter the genomes in this list as that would 
+            make the Track non-sensical.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_Track.Item(System.Int32)">
+            <summary>
+            Gets the genome at the given index.
+            </summary>
+            <param name="index">Index of Genome to retrieve.</param>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_Track.BestGenome">
+            <summary>
+            Gets the index of the fittest genome in the Track.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_Track.FitnessRange">
+            <summary>
+            Gets the fitness range for the entire track. 
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_Track.GenomeIndex(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Gets the index of the given genome or -1 if the genome is not part of this Track.
+            </summary>
+            <param name="genome">Genome to search for.</param>
+            <returns>Index of genome within Track.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_Track.Energy(System.Int32)">
+            <summary>
+            Gets the Energy at which a genome was stored.
+            </summary>
+            <param name="index">Index of genome.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_Track.Parent(System.Int32)">
+            <summary>
+            Gets the Parent index for a given genome.
+            </summary>
+            <param name="index">Index of genome.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_Track.AddGenome(Galapagos.Solvers.GP_Genome,System.Int32,System.Double)">
+            <summary>
+            Add a new genome to the Track.
+            </summary>
+            <param name="genome">Genome to add.</param>
+            <param name="parentIndex">Index of parent genome.</param>
+            <param name="energy">Energy level for genome.</param>
+            <returns>Index of genome.</returns>
+        </member>
+        <member name="T:Galapagos.Solvers.Annealing.GP_History">
+            <summary>
+            Represents a historic record of a set of Annealing runs.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_History.#ctor">
+            <summary>
+            Create a new Annealing History.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_History.TrackCount">
+            <summary>
+            Gets the total number of lineages contained in this history. 
+            Every lineage starts with a parent-less genome.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_History.FittestGenome">
+            <summary>
+            Gets the fittest genome in the entire history.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_History.FittestGenome(System.Int32@,System.Int32@)">
+            <summary>
+            Gets the fittest genome in the entire history.
+            </summary>
+            <param name="trackIndex">Index of track in which genome was found.</param>
+            <param name="genomeIndex">Index of genome within track.</param>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_History.FitnessRange">
+            <summary>
+            Gets the range for all fitness values in all tracks.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_History.Item(System.Int32)">
+            <summary>
+            Gets the Annealing track at the given index.
+            </summary>
+            <param name="index">Index of track to retrieve.</param>
+            <returns>The track at the given index.</returns>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_History.MostRecentTrack">
+            <summary>
+            Gets the most recent track.
+            </summary>>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_History.Tracks">
+            <summary>
+            Gets a copy of the list of all the Annealing Tracks in this History. 
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_History.ContainsGenome(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Test whether a given Genome is already part of the Annealing history.
+            </summary>
+            <param name="genome">Genome to test.</param>
+            <returns>True if the genome is already part of this history, false if not.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_History.StartLineage(Galapagos.Solvers.GP_Genome,System.Double)">
+            <summary>
+            Start a new Annealing track.
+            </summary>
+            <param name="founder">Genome that starts this lineage.</param>
+            <param name="energy">Energy level of founder genome.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_History.ContinueLineage(Galapagos.Solvers.GP_Genome,System.Int32,System.Double)">
+            <summary>
+            Continue an existing lineage.
+            </summary>
+            <param name="member">New genome in lineage.</param>
+            <param name="parentGenome">Index of parent genome.</param>
+            <param name="energy">Energy level of genome.</param>
+            <returns>The index at which the new genome is stored in the history.</returns>
+        </member>
+        <member name="T:Galapagos.Solvers.Annealing.GP_Solver">
+            <summary>
+            Implements the Simulated Annealing algorithm.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_Solver.#ctor">
+            <summary>
+            Create a new blank solver instance.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_Solver.History">
+            <summary>
+            Gets or sets the history of the annealing process.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_Solver.Settings">
+            <summary>
+            Gets or sets the settings to use while solving.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_Solver.AbortDelegate">
+            <summary>
+            Gets or sets the abort delegate to use during solutions.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_Solver.FitnessDelegate">
+            <summary>
+            Gets or sets the fitness delegate to use during solutions.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Annealing.GP_Solver.CurrentTemperature">
+            <summary>
+            Gets the current temperature of the solver.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.Annealing.GP_Solver.GenomeSolvedEventHandler">
+            <summary>
+            Delegate for the GenomeSolved event.
+            </summary>
+            <param name="sender">Solver object that raised the event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="E:Galapagos.Solvers.Annealing.GP_Solver.GenomeSolved">
+            <summary>
+            This event is raised whenever a Genome is solved.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_Solver.Clear">
+            <summary>
+            Reset the annealing history fields. Settings and delegates are left untouched.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_Solver.Anneal(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Perform a single annealing track.
+            </summary>
+            <param name="hint">Optional genome to serve as an annealing start track. 
+            If this is the first time you call Anneal(), you <i>must</i> supply a hint genome.</param>
+            <returns>The result of the annealing process.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_Solver.CreateAnnealingNeighbour(Galapagos.Solvers.GP_Genome,System.Double)">
+            <summary>
+            Create a new neighbouring state genome.
+            </summary>
+            <param name="from">Original state.</param>
+            <param name="energy">Energy available for jumping.</param>
+            <returns>A new genome which can be considered a neighbouring state under the current energy.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Annealing.GP_Solver.CreateUniqueGenome(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Mutate a genome until it is unique within the history. 
+            Though after 1000 attempts we give up.
+            </summary>
+            <param name="genome">Genome to mutate.</param>
+            <returns>True if the genome is unique, false if not.</returns>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_CoalescenceAlgorithm">
+            <summary>
+            Enumerates all Coalescence algorithms.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.Evolution.GP_CoalescenceAlgorithm.crossover">
+            <summary>
+            Combine random bots of parental genomes without changing gene values.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.Evolution.GP_CoalescenceAlgorithm.interpolate">
+            <summary>
+            Randomly blend parental gene values.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.Evolution.GP_CoalescenceAlgorithm.preference">
+            <summary>
+            Blend parental gene values with a fitness-based preference.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_Coalescence">
+            <summary>
+            Provides basic coalescence functionality. Coalescence is the process 
+            by which parental genomes are combined to generate offspring genomes.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coalescence.#ctor">
+            <summary>
+            Create a new default GP_Coalescence instance.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coalescence.#ctor(Galapagos.Solvers.Evolution.GP_CoalescenceAlgorithm,System.Int32)">
+            <summary>
+            Create a new custom GP_Coalescence instance.
+            </summary>
+            <param name="alg">Coalescence algorithm override.</param>
+            <param name="pref_factor">Preference factor override.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coalescence.#ctor(Galapagos.Solvers.Evolution.GP_Coalescence)">
+            <summary>
+            Create a duplicate of another GP_Coalescence instance.
+            </summary>
+            <param name="other">GP_Coalescence instance to copy.</param>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Coalescence.Algorithm">
+            <summary>
+            Gets or sets the algorithm to use during coalescence.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Coalescence.PreferenceFactor">
+            <summary>
+            Gets or sets the parental preference factor to be used in Preference Coalescence. 
+            Preference factors control to what extend the fitter parental genome is preferred. 
+            Preference factors are numbers between zero and a hundred, were 0 
+            indicates preference for the unfit genome, 50 indicates no preference and
+            100 indicates preference for the fitter genome.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coalescence.Coalesce(Galapagos.Solvers.GP_Genome,Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Coalesce two parental genomes. Genomes will be swapped if the maternal 
+            genome is shorter than the paternal genome.
+            </summary>
+            <param name="mother">Maternal genome.</param>
+            <param name="father">Paternal genome.</param>
+            <returns>Offspring genome.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coalescence.Serialize(System.Xml.XmlWriter)">
+            <summary>
+            Serialize this class using an XmlWriter instance.
+            </summary>
+            <param name="writer">XmlWriter to use during serialization.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coalescence.Deserialize(System.Xml.XmlNode)">
+            <summary>
+            Desrialize this class using an XmlNode instance.
+            </summary>
+            <param name="node">XmlNode to use during deserialization.</param>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_CouplingAlgorithm">
+            <summary>
+            Enumerates all Coupling algorithms.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.Evolution.GP_CouplingAlgorithm.isotropic">
+            <summary>
+            Isotropic coupling allows equal opportunity mating between all genomes, regardless of fitness.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.Evolution.GP_CouplingAlgorithm.exclusive">
+            <summary>
+            Exclusive coupling allows equal opportunity mating between the fittest genomes in a population.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.Evolution.GP_CouplingAlgorithm.biased">
+            <summary>
+            Biased coupling awards higher mating opportunity to fitter genomes, 
+            but does not exclude any genomes out of hand.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_Couple">
+            <summary>
+            Represents a single parent couple.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Couple.#ctor(System.Guid,System.Guid)">
+            <summary>
+            Create a new parents instance from a maternal and paternal genome.
+            </summary>
+            <param name="mother">Maternal ID.</param>
+            <param name="father">Paternal ID.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Couple.#ctor(Galapagos.Solvers.GP_Genome,Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Create a new parents instance from a maternal and paternal genome.
+            </summary>
+            <param name="mother">Maternal genome.</param>
+            <param name="father">Paternal genome.</param>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Couple.Invalid">
+            <summary>
+            Gets an invalid couple (nill uuids)
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Couple.IsValid">
+            <summary>
+            Gets couple validity. If any of the parents is Guid.Empty, this is not a valid couple.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Couple.Mother">
+            <summary>
+            Gets or sets the maternal genome ID.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Couple.Father">
+            <summary>
+            Gets or sets the paternal genome ID.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_Coupling">
+            <summary>
+            Base interface for couplers.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coupling.#ctor">
+            <summary>
+            Create a new default GP_Coupling instance.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coupling.#ctor(Galapagos.Solvers.Evolution.GP_CouplingAlgorithm,System.Int32,System.Int32)">
+            <summary>
+            Create a new custom GP_Coupling instance.
+            </summary>
+            <param name="alg">Coupling algorithm override.</param>
+            <param name="bias">Bias factor override.</param>
+            <param name="inclusion">Inclusion factor override.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coupling.#ctor(Galapagos.Solvers.Evolution.GP_Coupling)">
+            <summary>
+            Create a duplicate of another GP_Coupling instance.
+            </summary>
+            <param name="other">GP_Coupling instance to copy.</param>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Coupling.Algorithm">
+            <summary>
+            Gets or sets the algorithm to use during coalescence.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Coupling.Bias">
+            <summary>
+            Gets or sets the bias factor. The bias factor determines to what 
+            extend a fitter individual has a higher chance of parenthood than a less 
+            fit individual. A factor of one indicates no bias, higher factors indicate stronger bias.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Coupling.InclusionFactor">
+            <summary>
+            Gets or sets the inclusion percentage. The inclusion percentage determines  
+            the size the original population that makes the cut. Valid values 
+            range from 5% to 100%.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coupling.CreateCouples(System.Collections.Generic.IList{Galapagos.Solvers.GP_Genome},System.Int32,System.Int32)">
+            <summary>
+            Create a collection of parental couples based on a founder population.
+            </summary>
+            <param name="population">Population to harvest parents from.</param>
+            <param name="inbreeding">Inbreeding factor to apply when picking couples.</param>
+            <param name="amount">Number of parental couples to create.</param>
+            <returns>A list of parental couples harvested from the population.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coupling.RandomIndices(System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            Gets two distinct random indices in the range.
+            </summary>
+            <param name="max">Exclusive upper bound of the random range.</param>
+            <param name="index0">First random index.</param>
+            <param name="index1">Second random index.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coupling.FindMate(System.Collections.Generic.IList{Galapagos.Solvers.GP_Genome},System.Int32,System.Int32)">
+            <summary>
+            Utility function for finding mates in a population.
+            </summary>
+            <param name="population">Population to search.</param>
+            <param name="mate_index">Index of fixed mate.</param>
+            <param name="inbreeding">Inbreeding factor.</param>
+            <returns>A couple where the fixed mate is one of the parents.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coupling.Serialize(System.Xml.XmlWriter)">
+            <summary>
+            Serialize this class using an XmlWriter instance.
+            </summary>
+            <param name="writer">XmlWriter to use during serialization.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Coupling.Deserialize(System.Xml.XmlNode)">
+            <summary>
+            Desrialize this class using an XmlNode instance.
+            </summary>
+            <param name="node">XmlNode to use during deserialization.</param>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.IGP_FitnessStatistics">
+            <summary>
+            Bundles a bunch of Population Fitness statistics together in a neat little package.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.IGP_FitnessStatistics.Population">
+            <summary>
+            Gets the population that is described by these statistics.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.IGP_FitnessStatistics.GenomesIncluded">
+            <summary>
+            Gets the total number of genomes included in these statistics.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.IGP_FitnessStatistics.GenomesIgnored">
+            <summary>
+            Gets the total number of genomes that were ignored while computing these statistics.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.IGP_FitnessStatistics.TotalFitness">
+            <summary>
+            Gets the total fitness value of all included genomes.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.IGP_FitnessStatistics.MinimumFitness">
+            <summary>
+            Gets the lowest fitness value of all included genomes.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.IGP_FitnessStatistics.MaximumFitness">
+            <summary>
+            Gets the highest fitness value of all included genomes.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.IGP_FitnessStatistics.AverageFitness">
+            <summary>
+            Gets the average fitness value of all included genomes.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.IGP_FitnessStatistics.FitnessDeviation">
+            <summary>
+            Gets the statistical deviation from the average for all included genomes.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.IGP_FitnessStatistics.FormatStatistics">
+            <summary>
+            Format statistics as a human-readable format.
+            </summary>
+            <returns>String representation of statistics.</returns>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_FitnessStatistics">
+            <summary>
+            Bundles a collection of useful statistics regarding Population fitness.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_FitnessStatistics.Population">
+            <summary>
+            Gets the population that is described by these statistics.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_FitnessStatistics.GenomesIncluded">
+            <summary>
+            Gets the total number of genomes included in these statistics.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_FitnessStatistics.GenomesIgnored">
+            <summary>
+            Gets the total number of genomes that were ignored while computing these statistics.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_FitnessStatistics.TotalFitness">
+            <summary>
+            Gets the total fitness value of all included genomes.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_FitnessStatistics.MinimumFitness">
+            <summary>
+            Gets the lowest fitness value of all included genomes.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_FitnessStatistics.MaximumFitness">
+            <summary>
+            Gets the highest fitness value of all included genomes.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_FitnessStatistics.AverageFitness">
+            <summary>
+            Gets the average fitness value of all included genomes.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_FitnessStatistics.FitnessDeviation">
+            <summary>
+            Gets the statistical deviation from the average for all included genomes.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_FitnessStatistics.FormatStatistics">
+            <summary>
+            Format statistics as a human-readable format.
+            </summary>
+            <returns>String representation of statistics.</returns>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_MutationAlgorithm">
+            <summary>
+            Enumerates all Coupling algorithms.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.Evolution.GP_MutationAlgorithm.point">
+            <summary>
+            Provides a mechanism for <i>Point mutations</i>. A point mutation 
+            is a value change to a single gene. Point mutations do not affect Bauplan definitions.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.Evolution.GP_MutationAlgorithm.deletion">
+            <summary>
+            Provides a mechanism for <i>Gene Deletion</i>. A deletion 
+            is the random removal of a gene. This mutator will affect 
+            the Bauplan definition of a genome.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.Evolution.GP_MutationAlgorithm.amplification">
+            <summary>
+            Provides a mechanism for <i>Gene Amplification</i>. Amplification  
+            is the random duplication of a gene. This mutator will affect 
+            the Bauplan definition of a genome.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.Evolution.GP_MutationAlgorithm.reversal">
+            <summary>
+            Provides a mechanism for <i>Gene Reversal</i>. Reversal  
+            is the random swapping of two adjacent genes.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_Mutation">
+            <summary>
+            Base interface for all mutator implementations.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Mutation.#ctor">
+            <summary>
+            Create a new GP_Mutation instance with default settings.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Mutation.#ctor(Galapagos.Solvers.Evolution.GP_MutationAlgorithm,System.Int32,System.Int32)">
+            <summary>
+            Create a new GP_Mutation instance with custom settings.
+            </summary>
+            <param name="alg">Algorithm override.</param>
+            <param name="freq">Frequency override.</param>
+            <param name="point_range">Point Mutation range override.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Mutation.#ctor(Galapagos.Solvers.Evolution.GP_Mutation)">
+            <summary>
+            Create a duplicate of another GP_Mutation instance.
+            </summary>
+            <param name="other">GP_Mutation instance to copy.</param>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Mutation.Algorithm">
+            <summary>
+            Gets or sets the algorithm to use during mutation.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Mutation.Frequency">
+            <summary>
+            Gets or sets the mutational frequency. A frequency of 100 means about one in every hundred genes gets mutated.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Mutation.PointRange">
+            <summary>
+            Determines the range over which point mutations are allowed to act.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Mutation.MutateGenome(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Apply this mutator to an entire genome.
+            </summary>
+            <param name="genome">Genome to mutate.</param>
+            <returns>Number of genes which ended up being mutated.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Mutation.Serialize(System.Xml.XmlWriter)">
+            <summary>
+            Serialize this class using an XmlWriter instance.
+            </summary>
+            <param name="writer">XmlWriter to use during serialization.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Mutation.Deserialize(System.Xml.XmlNode)">
+            <summary>
+            Desrialize this class using an XmlNode instance.
+            </summary>
+            <param name="node">XmlNode to use during deserialization.</param>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_Population">
+            <summary>
+            Represents a population of genomes.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Population.#ctor(Galapagos.Solvers.Evolution.GP_Species)">
+            <summary>
+            Blank constructor.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Population.#ctor(Galapagos.Solvers.Evolution.GP_Population)">
+            <summary>
+            Create a duplicate of another population. 
+            The species information will not be duplicated, 
+            rather both Populations will share the same Species instance. 
+            Coupling data will be a shallow copy.
+            </summary>
+            <param name="other">Population to mimic.</param>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Population.Species">
+            <summary>
+            Gets the species this population is a part of.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Population.TotalFitness">
+            <summary>
+            Gets the total fitness of all genomes in this Population. 
+            Undetermined fitnesses are ignored. This property uses the 
+            internal fitness value of the genomes.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Population.MaximumFitness">
+            <summary>
+            Gets the maximum fitness of all genomes in this Population. 
+            Undetermined fitnesses are ignored. This property uses the 
+            internal fitnesses of genomes.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Population.FittestGenome">
+            <summary>
+            Gets the fittest genome in this population, or null 
+            if no genomes with a defined fitness could be found.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Population.FitnessStatistics">
+            <summary>
+            Gets a bunch of fitness statistics from this Population.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Population.BioDiversity">
+            <summary>
+            Gets the bio-diversity contained within this population. The biodiversity is a relative measure 
+            where 0.0 equals no biodiversity and 1.0 equals complete and utter chaos.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_Population.GenomeSolvedEventHandler">
+            <summary>
+            Delegate for the GenomeSolved event.
+            </summary>
+            <param name="sender">GP_Population object that raised the event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="E:Galapagos.Solvers.Evolution.GP_Population.GenomeSolved">
+            <summary>
+            This event is raised whenever a Genome is solved.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Population.IndexOf(System.Guid)">
+            <summary>
+            Get the index of the first genome that is identified by the given Guid.
+            </summary>
+            <param name="id">ID to search for.</param>
+            <returns>Index of first genome with the given ID or -1 if no such genome could be found.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Population.ComputeFitness(Galapagos.Solvers.GP_FitnessDelegate,Galapagos.Solvers.GP_AbortDelegate,Galapagos.Solvers.GP_SolverSettings)">
+            <summary>
+            Compute the fitness of all genomes in this population with the supplied delegate.
+            </summary>
+            <param name="fitnessFunction">Delegate for fitness calculation.</param>
+            <param name="abortDelegate">Delegate for abortion. This delegate is optional.</param>
+            <param name="settings">Solver settings.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Population.Mutate(System.Collections.Generic.IEnumerable{Galapagos.Solvers.Evolution.GP_Mutation})">
+            <summary>
+            Apply a set of mutations to all the genomes in this population.
+            </summary>
+            <param name="mutations">Mutations to apply.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Population.Mutate(Galapagos.Solvers.Evolution.GP_Mutation)">
+            <summary>
+            Apply a mutation to all the genomes in this population.
+            </summary>
+            <param name="mutation">Mutation to apply.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Population.HarvestFittest(System.Collections.Generic.IEnumerable{Galapagos.Solvers.GP_Genome},System.Int32)">
+            <summary>
+            Replace the unfittest individuals in this population with the 
+            fittest ones from a collection of Genomes.
+            </summary>
+            <param name="collection">Collection to harvest for fit individuals.</param>
+            <param name="percentage">Percentage of this population eligable for replacement.</param>
+            <returns>Number of genomes replaced.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Population.RetainFittest(System.Int32)">
+            <summary>
+            Retains the N fittest genomes in this population.
+            </summary>
+            <param name="amount">Number of genomes to retain.</param>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_PopulationList">
+            <summary>
+            Wraps List(Of GP_Population) and adds some additional functionality.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_PopulationList.#ctor">
+            <summary>
+            Create a new population database.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_PopulationList.#ctor(System.Int32)">
+            <summary>
+            Create a new population database with a specified capacity.
+            </summary>
+            <param name="initial_capacity">Capacity to endow to population database.</param>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_PopulationList.MostRecent">
+            <summary>
+            Gets the most recent population or null if there are no populations in the database.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_Species">
+            <summary>
+            Represents the entire species in all of space and time.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Species.#ctor">
+            <summary>
+            Blank constructor.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Species.GenomeTable">
+            <summary>
+            Gets the Genome table for this species.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Species.Populations">
+            <summary>
+            Gets all the populations that are part of this species.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Species.FittestGenome">
+            <summary>
+            Gets the fittest genome in the entire species.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Species.Find(Galapagos.Solvers.GP_Genome,System.Int32@,System.Int32@)">
+            <summary>
+            Find a genome in the species.
+            </summary>
+            <param name="genome">Genome to find.</param>
+            <param name="generation">When found, this index will point to the population that owns the genome.</param>
+            <param name="index">When found, this index will represents the offset in the population.</param>
+            <returns>True if the genome exists within this species, false if otherwise.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Species.Find(System.Guid,System.Int32@,System.Int32@)">
+            <summary>
+            Find a genome in the species.
+            </summary>
+            <param name="id">Genome id to find.</param>
+            <param name="generation">When found, this index will point to the population that owns the genome.</param>
+            <param name="index">When found, this index will represents the offset in the population.</param>
+            <returns>True if the genome exists within this species, false if otherwise.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Species.CreateFounderPopulation">
+            <summary>
+            Create a new empty founder population. 
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Species.CreateFounderPopulation(Galapagos.Solvers.GP_Genome,System.Int32)">
+            <summary>
+            Create a new founder population from a gene bauplan. 
+            </summary>
+            <param name="bauplan">Bauplan genome.</param>
+            <param name="size">Number of individuals in population.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Species.CreateFounderPopulation(Galapagos.Solvers.GP_Genome,System.Int32,System.Double)">
+            <summary>
+            Create a new founder population from a gene bauplan. 
+            </summary>
+            <param name="bauplan">Bauplan genome.</param>
+            <param name="size">Number of individuals in population.</param>
+            <param name="deviation">Amount to deviate from bauplan genome (0.0, 1.0)</param>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Species.CreateDescription">
+            <summary>
+            Create a description of the entire species.
+            </summary>
+            <returns>A textual record of the species.</returns>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_Solver">
+            <summary>
+            Implements the Evolutionary/Genetic algorithm.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Solver.#ctor">
+            <summary>
+            Create a new blank solver instance.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Solver.Species">
+            <summary>
+            Gets or sets the species this solver operated upon.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Solver.Settings">
+            <summary>
+            Gets or sets the settings to use while solving.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Solver.AbortDelegate">
+            <summary>
+            Gets or sets the abort delegate to use during solutions.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.Evolution.GP_Solver.FitnessDelegate">
+            <summary>
+            Gets or sets the fitness delegate to use during solutions.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.Evolution.GP_Solver.GenomeSolvedEventHandler">
+            <summary>
+            Delegate for the GenomeSolved event.
+            </summary>
+            <param name="sender">GP_Solver object that raised the event.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="E:Galapagos.Solvers.Evolution.GP_Solver.GenomeSolved">
+            <summary>
+            This event is raised whenever a Genome is solved.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Solver.Evolve">
+            <summary>
+            Create a new population and solve the fitness values. 
+            Before you call this function you must make sure a Founder population exists in the Species field.
+            </summary>
+            <returns>The result of the iteration.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Solver.Evolve(System.Double)">
+            <summary>
+            Create a new population and solve the fitness values. 
+            Before you call this function you must make sure a Founder population exists in the Species field.
+            </summary>
+            <param name="noise">Any value higher than zero will add normalised random mutations to the new population.</param>
+            <returns>The result of the iteration.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.Evolution.GP_Solver.CreateUniqueGenome(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Mutate a genome until it is unique within the population. 
+            Though after 1000 attempts we give up.
+            </summary>
+            <param name="genome">Genome to mutate.</param>
+            <returns>True if the genome is unique, false if not.</returns>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_Gene">
+            <summary>
+            Represents a single Gene.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Gene.#ctor">
+            <summary>
+            Blank constructor.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Gene.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Make a new gene with a limited scope.
+            </summary>
+            <param name="value">Initial value of gene.</param>
+            <param name="lower_limit">Initial lower limit of gene range.</param>
+            <param name="upper_limit">Initial upper limit of gene range.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Gene.#ctor(Galapagos.Solvers.GP_Gene)">
+            <summary>
+            Copy an existing Gene.
+            </summary>
+            <param name="other">Gene to mimic.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Gene.Interpolate(Galapagos.Solvers.GP_Gene,Galapagos.Solvers.GP_Gene,System.Double)">
+            <summary>
+            Interpolate two genes. This method interpolates both the limits <i>and</i> the values.
+            </summary>
+            <param name="A">First gene to interpolate.</param>
+            <param name="B">Second gene to interpolate.</param>
+            <param name="factor">Interpolation factor (0.0 ~ 1.0)</param>
+            <returns>The interpolated gene.</returns>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Gene.NormalisedValue">
+            <summary>
+            Gets or sets the value as a normalised floating point factor. 
+            Note that setting a normalised value is subject to rounding operations.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Gene.Value">
+            <summary>
+            Gets or sets the value of this gene. 
+            The value is set regardless of limits. If you want to 
+            ensure the value does not wander beyond the allowed range, 
+            use the Set() methods instead.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Gene.LowerLimit">
+            <summary>
+            Gets or sets the lower limit of the gene integer range. 
+            It is a bad idea to specify an exceptionally low value for the limit. 
+            Genes work best when they have a limited allowed range.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Gene.UpperLimit">
+            <summary>
+            Gets or sets the upper limit of the gene integer range. 
+            It is a bad idea to specify an exceptionally high value for the limit. 
+            Genes work best when they have a limited allowed range.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Gene.DistanceTo(Galapagos.Solvers.GP_Gene)">
+            <summary>
+            Compute the absolute distance between two genes. 
+            </summary>
+            <param name="other">Gene to compare with.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Gene.Set(System.Int32)">
+            <summary>
+            Apply a constrained new value. New value is automatically constrained to existing limits.
+            </summary>
+            <param name="value">New value of Gene.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Gene.Set(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Set both limits and the value simultaneously. 
+            The limits will automatically be made increasing and the 
+            value will be clipped to the limits.
+            </summary>
+            <param name="value">New value of Gene.</param>
+            <param name="limit_0">First limit number.</param>
+            <param name="limit_1">Second limit number.</param>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Gene.DebuggerDisplay">
+            <summary>
+            Gets a string description of this gene.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_Genome">
+            <summary>
+            Represents a collection of genes.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Genome.#ctor">
+            <summary>
+            Blank constructor.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Genome.#ctor(Galapagos.Solvers.GP_Gene[])">
+            <summary>
+            Create a new genome from a set of Genes.
+            </summary>
+            <param name="genes">Genes that are to become part of this genome.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Genome.#ctor(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Duplicate another genome.
+            </summary>
+            <param name="other">Genome to mimic.</param>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Genome.DebuggerDisplay">
+            <summary>
+            Gets a string that is used during Debugging purposes.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Genome.GenomeDescription">
+            <summary>
+            Gets a descriptive string with all gene values.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Genome.GenomeId">
+            <summary>
+            Gets the ID of this genome.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Genome.MotherId">
+            <summary>
+            Gets or sets the Id of the maternal genome.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Genome.FatherId">
+            <summary>
+            Gets or sets the Id of the paternal genome.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Genome.Offspring">
+            <summary>
+            Gets or sets the number of descendants this genome currently has.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Genome.History">
+            <summary>
+            Gets the history of this Genome. If no history has been recorded, this will be null.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Genome.FitnessDefined">
+            <summary>
+            Gets a value indicating whether or not this genome has a valid fitness value.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Genome.Fitness">
+            <summary>
+            Gets or sets the fitness of this Genome. 
+            Fitness is usually determined by an external delegate.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_Genome.FitnessInternal">
+            <summary>
+            Gets or sets the internal fitness. The internal fitness is the external fitness 
+            post-processed by any local constraints and/or weighting factors. 
+            The internal fitness should be used for comparisons.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Genome.IsDefinedPredicate(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Predicate delegate to be used for List culling ops.
+            </summary>
+            <param name="genome">Genome to test.</param>
+            <returns>True if genome fitness is defined.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Genome.IsUndefinedPredicate(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Predicate delegate to be used for List culling ops.
+            </summary>
+            <param name="genome">Genome to test.</param>
+            <returns>True if genome fitness is undefined.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Genome.AddHistoryRecord(System.String)">
+            <summary>
+            Append a record to the Genome history.
+            </summary>
+            <param name="record">Record to append.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Genome.Distance(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Measures the distance between this Genome and another one of the same general Bauplan.
+            </summary>
+            <param name="other">Genome to compare, must adhere to the same Bauplan.</param>
+            <returns>The relative distance between both genomes 
+            (where "relative" means the variation within gene limits).</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_Genome.CompareTo(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Compare fitness values in genomes.
+            </summary>
+            <param name="other">Genome to compare to.</param>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_GenomeHashComparer">
+            <summary>
+            Compare two integer arrays. Arrays must have equal length.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_GenomeTable">
+            <summary>
+            Maintains a hashed table of Genome data.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_GenomeTable.Count">
+            <summary>
+            Gets the number of cached genomes.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_GenomeTable.Dictionary">
+            <summary>
+            Gets the internal dictionary.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_GenomeTable.Clear">
+            <summary>
+            Clear all cached genomes.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_GenomeTable.Contains(Galapagos.Solvers.GP_Genome,System.Boolean)">
+            <summary>
+            Test the hash table for occupancy.
+            </summary>
+            <param name="genome">Genome to test for.</param>
+            <param name="add">If true, and the genome hasn't been defined yet, the genome will be registered with the table.</param>
+            <returns>True if a similar genome has already been defined.</returns>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_DensitySearchMethod">
+            <summary>
+            Enumerates the possible searching algorithms for the GP_DensitySearch class.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_DensitySearchMethod.None">
+            <summary>
+            Indicates no search.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_DensitySearchMethod.NearestNeighbour">
+            <summary>
+            Indicates only the distance to the nearest neighbour is of significance.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_DensitySearchMethod.AllCoordinates">
+            <summary>
+            Indicates the distance to all existing coordinates is of significance.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_DensitySearch">
+            <summary>
+            Utility class for generating coordinates that are far away from other coordinates in a multi-dimensional space.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.#ctor(System.Int32)">
+            <summary>
+            Create a new instance of the GP_DensitySearch class.
+            </summary>
+            <param name="dimensionality">Dimensionality of the space.</param>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_DensitySearch.Count">
+            <summary>
+            Gets the number of coordinates currently stored in the space.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_DensitySearch.Dimensionality">
+            <summary>
+            Gets the dimensionality of this space. If the space is empty, 
+            Dimensionality will be -1.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_DensitySearch.Minimum">
+            <summary>
+            Gets the minimum point in the space search region.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_DensitySearch.Maximum">
+            <summary>
+            Gets the maximum point in the space search region.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.SetMinMaxFromGenome(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Set both minimum and maximum values from a Genome gene range.
+            </summary>
+            <param name="genome">Genome that delineates the search region.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.AddCoordinate(System.Collections.Generic.IEnumerable{System.Double})">
+            <summary>
+            Insert a new coordinate into this space.
+            </summary>
+            <param name="coordinate">Coordinate to insert, must have matching dimensionality.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.AddCoordinate(System.Double[])">
+            <summary>
+            Insert a new coordinate into this space.
+            </summary>
+            <param name="coordinate">Coordinate to insert, must have matching dimensionality.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.AddNormalisedGenome(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Insert a new coordinate into this space that represents the normalised Genome.
+            </summary>
+            <param name="genome">Genome to add, must have matching dimensionality.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.AddGenome(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Insert a new coordinate into this space that represents the Genome.
+            </summary>
+            <param name="genome">Genome to add, must have matching dimensionality.</param>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_DensitySearch.DecentSampleCount">
+            <summary>
+            Computes a half-way decent sample count for the current space density.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.FindIsolatedGenome(Galapagos.Solvers.GP_DensitySearchMethod)">
+            <summary>
+            Find a new genome in the search space. This only works if the search is conducted in non-normalised space. 
+            The number of samples equals equals the DecentSampleCount property.
+            </summary>
+            <param name="searchMethod">Search method to use.</param>
+            <returns>A new coordinate.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.FindIsolatedGenome(Galapagos.Solvers.GP_DensitySearchMethod,System.Int32)">
+            <summary> 
+            Find a new genome in the search space. This only works if the search is conducted in non-normalised space.
+            </summary>
+            <param name="searchDepth">Number of insertion attempts.</param>
+            <param name="searchMethod">Search method to use.</param>
+            <returns>A new coordinate.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.FindIsolatedCoordinate(Galapagos.Solvers.GP_DensitySearchMethod)">
+            <summary>
+            Find a new coordinate in the search space. The number of samples equals equals the DecentSampleCount property.
+            </summary>
+            <param name="searchMethod">Search method to use.</param>
+            <returns>A new coordinate.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.FindIsolatedCoordinate(Galapagos.Solvers.GP_DensitySearchMethod,System.Int32)">
+            <summary>
+            Find a new coordinate in the search space.
+            </summary>
+            <param name="searchDepth">Number of insertion attempts.</param>
+            <param name="searchMethod">Search method to use.</param>
+            <returns>A new coordinate.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.FindIsolatedCoordinate_NN(System.Int32)">
+            <summary>
+            Implements the NearestNeighbour search.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.FindIsolatedCoordinate_AL(System.Int32)">
+            <summary>
+            Implements the AllCoordinates search.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.RandomCoordinate">
+            <summary>
+            Create a new random normalised coordinate with 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_DensitySearch.Distance(System.Double[],System.Double[])">
+            <summary>
+            Compute the inverse square distance between two multi-dimensional coordinates.
+            </summary>
+            <param name="A">First coordinate.</param>
+            <param name="B">Second coordinate (must have equal or higher dimensionality than A).</param>
+            <returns>Inverse square distance.</returns>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_ComputationResult">
+            <summary>
+            Enumerates possible fitness computation results.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_ComputationResult.success">
+            <summary>
+            Computation completed successfully.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_ComputationResult.failure">
+            <summary>
+            Computation failed.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_ComputationResult.abort">
+            <summary>
+            Computation was aborted.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_SolverInstruction">
+            <summary>
+            Enumerates the possible outcomes of a solver iteration.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_SolverInstruction.abort">
+            <summary>
+            User aborted the iteration.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_SolverInstruction.continue">
+            <summary>
+            Iteration successfully completed.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_SolverInstruction.complete">
+            <summary>
+            Solver reached an answer.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_SolverInstruction.terminate">
+            <summary>
+            Solver reached preset limits without reaching a definitive answer.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_FitnessDelegate">
+            <summary>
+            Fitness solver function for a given genome.
+            </summary>
+            <param name="genome">Genome to solve, this delegate should set the fitness of this genome.</param>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_AbortDelegate">
+            <summary>
+            Abort callback function.
+            </summary>
+            <returns>True if the solver should be aborted.</returns>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_SolverType">
+            <summary>
+            Enumerates the available solvers in the Galapagos library.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_SolverType.None">
+            <summary>
+            Indicates no solver.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_SolverType.GA">
+            <summary>
+            Indicates the Evolutionary Solver (<b>G</b>enetic <b>A</b>lgorithms).
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_SolverType.SA">
+            <summary>
+            Indicates the Annealing Solver (<b>S</b>imulated <b>A</b>nnealing).
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_SolverType.LS">
+            <summary>
+            Indicates the Hill Climbing Solver (<b>L</b>ocal <b>S</b>earch).
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_SolverSettings">
+            <summary>
+            Maintains all settings used for Evolutionary Solver runs.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_SolverSettings.SA_MinEnergy">
+            <summary>
+            Specifies the minimum allowed energy level inside a single Annealing Track.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_SolverSettings.SA_MinExponent">
+            <summary>
+            Specifies the exponent (1.0eX) of the minimum allowed SA energy.
+            </summary>
+        </member>
+        <member name="F:Galapagos.Solvers.GP_SolverSettings.m_SA_EnergyDecay">
+            <summary>
+            Energy Decay is stored as parts in a million. Use the SA_EnergyDecay property for floating point access.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_SolverSettings.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_SolverSettings.#ctor(Galapagos.Solvers.GP_SolverSettings)">
+            <summary>
+            Copy constructor.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.Default">
+            <summary>
+            Gets an instance of the default solver settings.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_SolverSettings.RevertToDefault">
+            <summary>
+            Set all fields in this instance to their default value.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.Solver">
+            <summary>
+            Gets or sets the active Solver.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.UseRuntimeLimit">
+            <summary>
+            Gets or sets whether the solution is runtime limited.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.RuntimeLimit">
+            <summary>
+            Gets or sets the runtime limitation.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.Target">
+            <summary>
+            Gets or sets the fitness target value. Fitness values attempt to approach this target. 
+            Double.PositiveInfinity and Double.NegativeInfinity are legal values.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.Threshold">
+            <summary>
+            Gets or sets the fitness threshold value. If a sample achieves a fitness better than the threshold,
+            the solution will be stopped. Use Double.NaN to disable the threshold. If InfiniteTarget returns false 
+            this property is ignored.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.InfiniteTarget">
+            <summary>
+            Gets a value indicating whether or not the solver process is considered to be infinite. 
+            The following values for target result in an infinite process:
+            <para>double.NegativeInfinity</para>
+            <para>double.PositiveInfinity</para>
+            <para>double.MinValue</para>
+            <para>double.MaxValue</para>
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_SolverSettings.IsFitnessGoodEnough(System.Double)">
+            <summary>
+            Determine whether or not the fitness value is considered to be acceptable 
+            given the current settings for Target and Threshold.
+            </summary>
+            <param name="fitness">Fitness to test.</param>
+            <returns>True if the supplied fitness is acceptable.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_SolverSettings.RemapFitness(Galapagos.Solvers.GP_Genome)">
+            <summary>
+            Compute the internal fitness value based on Target, Threshold and fitness properties.
+            </summary>
+            <param name="genome">Genome for internal fitness computation.</param>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_SolverSettings.RemapFitness(System.Double)">
+            <summary>
+            Compute the internal fitness value based on Target, Threshold and fitness properties.
+            </summary>
+            <param name="fitness">External fitness to remap.</param>
+            <returns>The internal fitness.</returns>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.GA_InitialBoost">
+            <summary>
+            Gets or sets the initial population boost factor for the GA solver.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.GA_InitialSize">
+            <summary>
+            Gets or sets the initial population size for the GA solver.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.GA_MinimumSize">
+            <summary>
+            Gets or sets the minimum population size for the GA solver.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.GA_FruitlessLimit">
+            <summary>
+            Gets or sets the maximum number of fruitless generations for the GA solver.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.GA_MaintainPercentage">
+            <summary>
+            Gets or sets the MaintainHighFitness percentage for the GA solver.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.GA_InbreedingFactor">
+            <summary>
+            Gets or sets the population inbreeding factor for the GA solver.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.GA_Coupling">
+            <summary>
+            Gets the collection of all coupling algorithms available to the GA solver.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.GA_Mutations">
+            <summary>
+            Gets the collection of all mutation algorithms available to the GA solver.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.GA_Coalescence">
+            <summary>
+            Gets the collection of all coalescence algorithms available to the GA solver.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.SA_InitialEnergy">
+            <summary>
+            Gets or sets the initial energy for the SA solver. 
+            Lowest allowed value is 1, highest allowed value is 100. 
+            Value is a logarithmic percentage between the maximum and minimum energies.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.SA_InitialEnergyInternal">
+            <summary>
+            Gets the actual starting energy as dictated by the SA_InitialEnergy logarithmic percentage.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.SA_EnergyDecay">
+            <summary>
+            Gets or sets the cooling factor for the SA solver.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.SA_DriftRate">
+            <summary>
+            Gets or sets the drift rate (as a percentage). The Drift rate indicates what 
+            the chances are that a secondary gene is adjusted when creating neighbouring states. 
+            The chances that a third gene is adjusted is DriftRate*DriftRate etc. etc.
+            </summary>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_SolverSettings.Serialize">
+            <summary>
+            Serialize all the settings.
+            </summary>
+            <returns>A string which contains all the settings.</returns>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_SolverSettings.Deserialize(System.String)">
+            <summary>
+            Deserialize a settings string.
+            </summary>
+            <param name="data">Settings to deserialize.</param>
+            <returns>True on success, false on failure.</returns>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_SolverSettings.EncodedStringWriter">
+            <summary>
+            This class is needed to override the UTF-16 encoding property of the default DotNET StringWriter. 
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Galapagos.Solvers.GP_SolverSettings.EncodedStringWriter.#ctor">
+            <summary>
+            Constructor for StringWriter
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_SolverSettings.EncodedStringWriter.Encoding">
+            <summary>
+            Always return UTF-8.
+            </summary>
+        </member>
+        <member name="T:Galapagos.Solvers.GP_GenomeSolvedEventArgs">
+            <summary>
+            Argument used in the GenomeSolved event.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_GenomeSolvedEventArgs.Solver">
+            <summary>
+            Gets the Solver object responsible for this event.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_GenomeSolvedEventArgs.Genome">
+            <summary>
+            Gets the GP_Genome object that was solved.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Solvers.GP_GenomeSolvedEventArgs.MappedFitness">
+            <summary>
+            Gets the internal mapped fitness value. Mapped fitness values have been modified 
+            so that higher values always represent more desirable fitness.
+            </summary>
+        </member>
+        <member name="T:Galapagos.GP_Exception">
+            <summary>
+            Galapagos Exception type.
+            </summary>
+            <exclude/>
+        </member>
+        <member name="M:Galapagos.GP_Exception.#ctor">
+            <summary>
+            GP_Exception constructor.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GP_Exception.#ctor(System.String)">
+            <summary>
+            GP_Exception constructor.
+            </summary>
+            <param name="message">Message of exception.</param>
+        </member>
+        <member name="M:Galapagos.GP_Exception.#ctor(System.String,System.Exception)">
+            <summary>
+            GP_Exception constructor.
+            </summary>
+            <param name="message">Message of exception.</param>
+            <param name="inner_exception">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="T:Galapagos.GP_Galapagos">
+            <summary>
+            Provides some static utility methods.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GP_Galapagos.#ctor">
+            <summary>
+            This class only contains static methods and cannot be constructed.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GP_Galapagos.Build">
+            <summary>
+            Gets the build version.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GP_Galapagos.BuildDate">
+            <summary>
+            Gets the build date.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GP_Galapagos.DisplayBanner">
+            <summary>
+            Display the Galapagos banner.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GP_Galapagos.DisplayBanner(System.Windows.Forms.IWin32Window)">
+            <summary>
+            Display the Galapagos banner.
+            </summary>
+            <param name="parent">The banner will be shown as a child window of the parent.</param>
+        </member>
+        <member name="M:Galapagos.GP_Galapagos.SetSeed(System.Int32)">
+            <summary>
+            Set the random seed value for *all* Galapagos algorithms.
+            </summary>
+        </member>
+        <member name="P:Galapagos.GP_Galapagos.Random">
+            <summary>
+            Gets a static instance of System.Random.
+            </summary>
+        </member>
+        <member name="M:Galapagos.GP_Galapagos.SetRandomSeed(System.Int32)">
+            <summary>
+            Set the seed of the static Random instance.
+            </summary>
+            <param name="seed">Seed to apply to Random generator.</param>
+        </member>
+        <member name="M:Galapagos.GP_Galapagos.RandomValue">
+            <summary>
+            Get a new random value between zero and one.
+            </summary>
+            <returns>A random value between zero and one.</returns>
+        </member>
+        <member name="M:Galapagos.GP_Galapagos.RandomValue(System.Int32)">
+            <summary>
+            Get a new average random value between zero and one.
+            </summary>
+            <param name="count">Number of values to average.</param>
+            <returns>A random value between zero and one.</returns>
+        </member>
+        <member name="M:Galapagos.GP_Galapagos.RandomValue(System.Double,System.Double)">
+            <summary>
+            Get a new random floating point value.
+            </summary>
+            <param name="min">Lower end of random range.</param>
+            <param name="max">Upper end of random range.</param>
+            <returns>A random floating point value in the range {min, max}</returns>
+        </member>
+        <member name="M:Galapagos.GP_Galapagos.RandomValue(System.Double,System.Double,System.Int32)">
+            <summary>
+            Get a new average random floating point value.
+            </summary>
+            <param name="min">Lower end of random range.</param>
+            <param name="max">Upper end of random range.</param>
+            <param name="count">Number of values to average.</param>
+            <returns>A random floating point value in the range {min, max}</returns>
+        </member>
+        <member name="M:Galapagos.GP_Galapagos.RandomValue(System.Int32,System.Int32)">
+            <summary>
+            Get a new random integer value.
+            </summary>
+            <param name="min">Inclusive lower end of random range.</param>
+            <param name="max">Exclusive upper end of random range.</param>
+            <returns>A random integer value in the range {min, max}</returns>
+        </member>
+        <member name="M:Galapagos.GP_Galapagos.RandomValue(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Get a new average random integer value.
+            </summary>
+            <param name="min">Inclusive lower end of random range.</param>
+            <param name="max">Exclusive upper end of random range.</param>
+            <param name="count">Number of values to average.</param>
+            <returns>A random integer value in the range {min, max}</returns>
+        </member>
+        <member name="M:Galapagos.GP_Galapagos.RandomBool">
+            <summary>
+            Get a new random boolean.
+            </summary>
+            <returns>A randomly generated true or false value.</returns>
+        </member>
+        <member name="T:Galapagos.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Properties.Resources.StatisticsBump">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Galapagos.Properties.Resources.StatisticsDrop">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+    </members>
+</doc>
