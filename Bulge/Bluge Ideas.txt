@@ -1,0 +1,36 @@
+bluge ideas
+
+canvas clean
+canvas default
+canvas custome
+canvas rainbow
+
+slider with min and max input
+gene pool with min max default input
+md slider with multiple point
+
+vector picker
+plane picker
+vector from degree
+
+gene pool of bool
+gene pool that change number
+gene pool that flip bool
+gene pool of color
+gene pool mix input
+
+remap plus (with default 0 and 1)
+
+
+variable step series
+
+increment of a list
+decrement of a list
+multiplication increment of a list
+multiplication decrement of a list
+
+mass addition until a certain value
+
+
+gradient with solid color
+blur 2d numbers
