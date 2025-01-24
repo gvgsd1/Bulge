@@ -1,24 +1,21 @@
 ﻿
 using GH_IO.Serialization;
-using Grasshopper;
 using Grasshopper.GUI;
-using Grasshopper.GUI.Canvas;
-using Grasshopper.GUI.RemotePanel;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Data;
 using Grasshopper.Kernel.Expressions;
 using Grasshopper.Kernel.Types;
-using Grasshopper.My.Resources;
+using Rhino.UI.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Drawing2D;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Bulge.Params.ButtonPlus
 {
     /// <exclude />
-    public class GH_Button : GH_Param<IGH_Goo>
+    public class GH_Button : GH_Component
     {
         private bool m_buttonDown;
         private string m_expNormal;
@@ -27,8 +24,39 @@ namespace Bulge.Params.ButtonPlus
         private IGH_Goo m_valPressed;
         private List<string> m_exceptions;
 
+        protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
+        {
+            pManager.AddBooleanParameter("Flip", "F", "Flip the value", GH_ParamAccess.item, false);
+        }
+
+        protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
+        {
+            pManager.AddBooleanParameter("Bool", "B", "Bool", GH_ParamAccess.item);
+        }
+
+        protected override void SolveInstance(IGH_DataAccess DA)
+        {
+            GH_Boolean flip = (GH_Boolean)null;
+            
+            DA.GetData<GH_Boolean>(0, ref flip);
+ 
+            if (flip.Value)
+            {
+                if (m_buttonDown)
+                    DA.SetData(0, m_valNormal);
+                else
+                    DA.SetData(0, m_valPressed);
+            }
+            else
+            {
+                if (m_buttonDown)
+                    DA.SetData(0, m_valPressed);
+                else
+                    DA.SetData(0, m_valNormal);
+            }
+        }
         public GH_Button()
-          : base(new GH_InstanceDescription("Button +", "Button +", "Button object with two values", "Bulge", "Params"))
+            : base("Button +", "Button +", "Button object with two values", "Bulge", "Params")
         {
             m_buttonDown = false;
             m_expNormal = "False";
@@ -37,6 +65,17 @@ namespace Bulge.Params.ButtonPlus
             m_valPressed = new GH_Boolean(true);
             m_exceptions = new List<string>();
         }
+
+        //public GH_Button()
+        //  : base(new GH_InstanceDescription("Button +", "Button +", "Button object with two values", "Bulge", "Params"))
+        //{
+        //    m_buttonDown = false;
+        //    m_expNormal = "False";
+        //    m_expPressed = "True";
+        //    m_valNormal = new GH_Boolean(false);
+        //    m_valPressed = new GH_Boolean(true);
+        //    m_exceptions = new List<string>();
+        //}
 
         public override void CreateAttributes() => m_attributes = new GH_ButtonAttributes(this);
 
@@ -78,30 +117,78 @@ namespace Bulge.Params.ButtonPlus
             m_exceptions.Add(string.Format("Expression: \"{0}\" could not be evaluated", ExpressionPressed));
         }
 
-        protected override void CollectVolatileData_Custom()
-        {
-            try
-            {
-                foreach (string exception in m_exceptions)
-                    AddRuntimeMessage(GH_RuntimeMessageLevel.Error, exception);
-            }
-            finally
-            {
-                //List<string>.Enumerator enumerator;
-                //enumerator.Dispose();
-            }
-            m_data.Clear();
-            if (m_buttonDown)
-                m_data.Append(m_valPressed, new GH_Path(0));
-            else
-                m_data.Append(m_valNormal, new GH_Path(0));
-        }
+        //protected override void CollectVolatileData_Custom()
+        //{
+        //    try
+        //    {
+        //        foreach (string exception in m_exceptions)
+        //            AddRuntimeMessage(GH_RuntimeMessageLevel.Error, exception);
+        //    }
+        //    finally { }
+        //    m_data.Clear();
+        //    if (m_buttonDown)
+        //        m_data.Append(m_valPressed, new GH_Path(0));
+        //    else
+        //        m_data.Append(m_valNormal, new GH_Path(0));
+        //}
 
-        public override GH_ParamKind Kind => GH_ParamKind.floating;
+        //protected override void CollectVolatileData_FromSources()
+        //{
+        //    this.Optional = true;
+
+        //    this.VolatileData.Clear();
+
+        //    try
+        //    {
+        //        if (this.Sources.Count > 1)
+        //        {
+        //            this.AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "It should not have been possible to assign more than one source");
+        //            this.Phase = GH_SolutionPhase.Failed;
+        //        }
+        //        else
+        //        {
+        //            this.Sources[0].CollectData();
+
+        //            IGH_Structure volatileData = this.Sources[0].VolatileData;
+
+        //            IGH_Goo firstData = volatileData.AllData(true).FirstOrDefault();
+
+        //            bool flip = false;
+        //            bool isBool = firstData.CastTo(out flip);
+
+        //            if (isBool)
+        //            {
+        //                m_data.Clear();
+        //                if (flip)
+        //                {
+        //                    if (m_buttonDown)
+        //                        m_data.Append(m_valNormal, new GH_Path(0));
+        //                    else
+        //                        m_data.Append(m_valPressed, new GH_Path(0));
+        //                }
+        //                else
+        //                {
+        //                    if (m_buttonDown)
+        //                        m_data.Append(m_valPressed, new GH_Path(0));
+        //                    else
+        //                        m_data.Append(m_valNormal, new GH_Path(0));
+        //                }
+        //            }
+        //            else
+        //            {
+        //                this.AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Source data is not a bool type");
+        //                this.Phase = GH_SolutionPhase.Failed;
+        //            }
+        //        }
+        //    }
+        //    finally { }
+        //}
+
+        //public override GH_ParamKind Kind => GH_ParamKind.floating;
 
         protected override Bitmap Icon => Properties.Resources.S44316481;
 
-        public override GH_ParamData DataType => GH_ParamData.local;
+        //public override GH_ParamData DataType => GH_ParamData.local;
 
         public override GH_Exposure Exposure => GH_Exposure.secondary;
 

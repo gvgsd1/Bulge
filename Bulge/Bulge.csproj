@@ -28,6 +28,11 @@
     <Compile Remove="Params\MyComponent1.cs" />
     <Compile Remove="Params\MySimpleIntegerParameter.cs" />
     <Compile Remove="Params\MySimpleIntegerParameterAttributes.cs" />
+    <Compile Remove="Params\NumberSliderPlus\GH_NumberSlider_Backup.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="Params\NumberSliderPlus\GH_NumberSlider_Backup.cs" />
   </ItemGroup>
   
   <ItemGroup>
