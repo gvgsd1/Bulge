@@ -34,3 +34,30 @@ mass addition until a certain value
 
 gradient with solid color
 blur 2d numbers
+
+Sine curve
+
+display curve number sequence
+
+join ordered curve at end point
+
+group / ungroup with path
+
+split list allow negative index
+
+path mapper with typing input
+
+get curent file path
+
+mid wheel enable script
+
+first last tree branch
+
+first last tree branch at level
+
+first and rest tree branch
+
+last and rest tree branch
+
+split at nth tree branch
+
