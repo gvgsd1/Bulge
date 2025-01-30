@@ -101,7 +101,7 @@ namespace Bulge.Params.ButtonPlus
 
         protected override void Layout()
         {
-            Pivot = (PointF)GH_Convert.ToPoint(Pivot);
+
             int words_width = GH_FontServer.StringWidth(Owner.NickName, GH_FontServer.StandardAdjusted);
             int input_words_width = GH_FontServer.StringWidth("F", GH_FontServer.StandardAdjusted);
             int width = 50;

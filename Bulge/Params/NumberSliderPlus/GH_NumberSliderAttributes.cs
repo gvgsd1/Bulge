@@ -12,14 +12,12 @@ using Grasshopper.GUI.Canvas;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Attributes;
 using Grasshopper.Kernel.Expressions;
-using Grasshopper.Kernel.Types;
 using Grasshopper.Kernel.Undo;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace Bulge.Params.NumberSliderPlus
@@ -30,8 +28,9 @@ namespace Bulge.Params.NumberSliderPlus
         private static readonly int SliderMinWidth = 120;
         private int m_dragmode;
         private string m_cachedName;
-        private Rectangle rec_words;
-        private Rectangle rec_slider;
+        private RectangleF rec_words;
+        private RectangleF rec_words_pill;
+        private RectangleF rec_slider;
         private RectangleF rec_input_words;
 
         public GH_NumberSliderAttributes(GH_NumberSlider nOwner)
@@ -41,45 +40,63 @@ namespace Bulge.Params.NumberSliderPlus
             ExpireLayout();
             Layout();
         }
-        //public override void AppendToAttributeTree(List<IGH_Attributes> attributes)
-        //{
-        //    attributes.Add((IGH_Attributes)this);
-        //    //foreach (IGH_Param ghParam in this.Owner.Params.Input)
-        //    //    attributes.Add(ghParam.Attributes);
-        //    //foreach (IGH_Param ghParam in this.Owner.Params.Output)
-        //    //    attributes.Add(ghParam.Attributes);
-        //}
+
+        public override void AppendToAttributeTree(List<IGH_Attributes> attributes)
+        {
+            attributes.Add((IGH_Attributes)this);
+            foreach (IGH_Param ghParam in this.Owner.Params.Input)
+                attributes.Add(ghParam.Attributes);
+            foreach (IGH_Param ghParam in this.Owner.Params.Output)
+                attributes.Add(ghParam.Attributes);
+        }
 
         protected override void Layout()
         {
-            SizeF sizeF = (SizeF)GH_FontServer.MeasureString(Owner.ImpliedNickName, GH_FontServer.StandardAdjusted);
-            sizeF.Width = Math.Max(sizeF.Width + 10f, MinimumSize.Height);
+
+            SizeF words_width = (SizeF)GH_FontServer.MeasureString(Owner.NickName, GH_FontServer.StandardAdjusted);
+            words_width.Width = Math.Max(words_width.Width + 10f, MinimumSize.Height);
             if (Owner.IsExpression)
-                sizeF.Width += 16f;
-            Bounds = new RectangleF(Pivot.X, Pivot.Y, Math.Max(Bounds.Width, sizeF.Width + SliderMinWidth), MinimumSize.Height);
-            Bounds = (RectangleF)GH_Convert.ToRectangle(Bounds);
-            PointF pivot = Pivot;
-            double x = (double)pivot.X;
-            pivot = Pivot;
-            double y = (double)pivot.Y;
-            double width = (double)sizeF.Width;
-            double height = MinimumSize.Height;
+                words_width.Width += 16f;
+            
+            
+            float width = words_width.Width;
+            float height = MinimumSize.Height;
+            float input_height = 64;
+            //Bounds = new RectangleF(Pivot.X, Pivot.Y, Math.Max(Bounds.Width, words_width.Width + SliderMinWidth), MinimumSize.Height);
+            Bounds = new RectangleF(Pivot.X, Pivot.Y, Math.Max(Bounds.Width, words_width.Width + SliderMinWidth), input_height);
+            rec_input_words = new RectangleF(Pivot, new SizeF(22, input_height));
+            
+            rec_words = new RectangleF(rec_input_words.Right, rec_input_words.Top + (input_height-height)/2, width, height);
+            rec_words_pill = new RectangleF(Pivot.X, Pivot.Y, width + 22, input_height);
+            rec_slider = RectangleF.FromLTRB(rec_words_pill.Right, rec_words.Top, Bounds.Right, rec_words.Bottom);
+            if (Owner.Slider != null)
+            {
+                Owner.Slider.Font = GH_FontServer.StandardAdjusted;
+                Owner.Slider.DrawControlBorder = false;
+                Owner.Slider.DrawControlShadows = false;
+                Owner.Slider.DrawControlBackground = false;
+                Owner.Slider.TickCount = 11;
+                Owner.Slider.TickFrequency = 5;
+                Owner.Slider.RailDarkColour = Color.FromArgb(30, Color.Black);
+                Owner.Slider.TickDisplay = GH_SliderTickDisplay.Simple;
+                Owner.Slider.RailDisplay = GH_SliderRailDisplay.Simple;
+                Owner.Slider.Padding = new Padding(6, 2, 6, 1);
+                Owner.Slider.Bounds = Rectangle.Round(rec_slider);
+            }
 
-            rec_input_words = new RectangleF(Pivot, new SizeF(22, 22));
+            rec_input_words.Inflate(-2f, -2f);
 
-            rec_words = GH_Convert.ToRectangle(new RectangleF((float)x, (float)y, (float)width, (float)height));
-            rec_slider = Rectangle.FromLTRB(rec_words.Right, rec_words.Top, Convert.ToInt32(Bounds.Right), rec_words.Bottom);
-            Owner.Slider.Font = GH_FontServer.StandardAdjusted;
-            Owner.Slider.DrawControlBorder = false;
-            Owner.Slider.DrawControlShadows = false;
-            Owner.Slider.DrawControlBackground = false;
-            Owner.Slider.TickCount = 11;
-            Owner.Slider.TickFrequency = 5;
-            Owner.Slider.RailDarkColour = Color.FromArgb(30, Color.Black);
-            Owner.Slider.TickDisplay = GH_SliderTickDisplay.Simple;
-            Owner.Slider.RailDisplay = GH_SliderRailDisplay.Simple;
-            Owner.Slider.Padding = new Padding(6, 2, 6, 1);
-            Owner.Slider.Bounds = rec_slider;
+            //???
+            var Bounds2 = Bounds;
+            Bounds2.X += 15;
+            Bounds2.Width -= 35;
+            Bounds2.Height = 66;
+            //
+
+
+            GH_ComponentAttributes.LayoutInputParams(this.Owner, Bounds2);
+            GH_ComponentAttributes.LayoutOutputParams(this.Owner, Bounds2);
+
         }
 
         protected override void Render(GH_Canvas canvas, Graphics graphics, GH_CanvasChannel channel)
@@ -87,19 +104,15 @@ namespace Bulge.Params.NumberSliderPlus
             switch (channel)
             {
                 case GH_CanvasChannel.Wires:
-                    //if (this.Owner.SourceCount <= 0)
-                    //    break;
-                    //this.RenderIncomingWires(canvas.Painter, this.Owner.Sources, this.Owner.WireDisplay);
-
                     foreach (IGH_DocumentObject ghDocumentObject in this.Owner.Params.Input)
                         ghDocumentObject.Attributes.RenderToCanvas(canvas, GH_CanvasChannel.Wires);
 
                     break;
                 case GH_CanvasChannel.Objects:
-                    string impliedNickName = Owner.ImpliedNickName;
-                    if (m_cachedName == null || !impliedNickName.Equals(m_cachedName, StringComparison.Ordinal))
+                    string nickName = Owner.NickName;
+                    if (m_cachedName == null || !nickName.Equals(m_cachedName, StringComparison.Ordinal))
                     {
-                        m_cachedName = impliedNickName;
+                        m_cachedName = nickName;
                         ExpireLayout();
                         Layout();
                     }
@@ -110,34 +123,50 @@ namespace Bulge.Params.NumberSliderPlus
                     Bounds = bounds1;
                     if (num == 0)
                         return;
-                    //int[] radii1 = new int[4] { 3, 0, 0, 3 };
-                    //int[] radii2 = new int[4] { 0, 3, 3, 0 };
-                    Rectangle boundbox = rec_words;
-                    boundbox.Width = rec_words.Width + 20;
-                    Rectangle textbox = rec_words;
-                    Rectangle rectangle = Rectangle.Empty;
+
+                    RectangleF boundbox = rec_words_pill;
+                    boundbox.Width = rec_words.Width + 40;
+                    RectangleF textbox = rec_words;
+                    RectangleF rectangle = RectangleF.Empty;
+
                     if (Owner.IsExpression)
                     {
-                        //rectangle = this.rec_words with { Width = 20 };
-                        textbox = new Rectangle(textbox.X + 20, textbox.Y, textbox.Width - 20, textbox.Height);
+                        textbox = new RectangleF(textbox.X + 20, textbox.Y, textbox.Width - 20, textbox.Height);
                     }
+
+                    #region Mid (Name) Pill
                     GH_Capsule textCapsule;
                     switch (Owner.RuntimeMessageLevel)
                     {
                         case GH_RuntimeMessageLevel.Warning:
-                            textCapsule = GH_Capsule.CreateTextCapsule(boundbox, textbox, GH_Palette.Warning, impliedNickName, 10, 0);
+                            textCapsule = GH_Capsule.CreateTextCapsule(boundbox, textbox, GH_Palette.Warning, nickName, 10, 0);
                             break;
                         case GH_RuntimeMessageLevel.Error:
-                            textCapsule = GH_Capsule.CreateTextCapsule(boundbox, textbox, GH_Palette.Error, impliedNickName, 10, 0);
+                            textCapsule = GH_Capsule.CreateTextCapsule(boundbox, textbox, GH_Palette.Error, nickName, 10, 0);
                             break;
                         default:
-                            textCapsule = GH_Capsule.CreateTextCapsule(boundbox, textbox, GH_Palette.Hidden, impliedNickName, 10, 0);
+                            textCapsule = GH_Capsule.CreateTextCapsule(boundbox, textbox, GH_Palette.Hidden, nickName, 10, 0);
                             break;
                     }
-                    textCapsule.AddInputGrip(InputGrip.Y);
-                    //textCapsule.Render(graphics, Selected, Owner.Locked, true);
+
                     Utility.UtilityRender.Render(textCapsule, graphics, null, Selected, Owner.Locked, true);
                     textCapsule.Dispose();
+                    #endregion
+
+                    #region Left (Input) Pill
+                    RectangleF rec_input_words1 = rec_input_words;
+
+                    GH_Capsule input_capsule_bounds = GH_Capsule.CreateCapsule(rec_input_words1, GH_Palette.Normal, 25, 0);
+                    input_capsule_bounds.AddInputGrip(InputGrip.Y - 20);
+                    input_capsule_bounds.AddInputGrip(InputGrip.Y);
+                    input_capsule_bounds.AddInputGrip(InputGrip.Y + 20);
+                    input_capsule_bounds.Font = GH_FontServer.StandardAdjusted;
+                    Utility.UtilityRender.Render(input_capsule_bounds, graphics, null, this.Selected, this.Owner.Locked, true);
+                    input_capsule_bounds.Dispose();
+
+                    #endregion
+
+                    #region Expression Icon
                     if (Owner.IsExpression && !rectangle.IsEmpty)
                     {
                         //GH_StateTag_Expression stateTagExpression = new GH_StateTag_Expression(Owner.Expression);
@@ -146,23 +175,39 @@ namespace Bulge.Params.NumberSliderPlus
 
                         //stateTagExpression.Render(graphics);
                     }
+                    #endregion
+
+                    #region Right (Slider) Pill
                     GH_Capsule capsule = GH_Capsule.CreateCapsule(rec_slider, GH_Palette.Normal, 10, 0);
                     capsule.AddOutputGrip(OutputGrip.Y);
-                    //capsule.Render(graphics, Selected, Owner.Locked, false);
                     Utility.UtilityRender.Render(capsule, graphics, null, Selected, Owner.Locked, false);
                     capsule.Dispose();
+                    #endregion
+
+                    #region Expression Slider Number Format
                     //if (!Owner.IsExpression || Owner.VolatileDataCount == 0)
                     //    Owner.Slider.FormatMask = "{0}";
                     //else
                     //    Owner.Slider.FormatMask = ((GH_Goo<double>)RuntimeHelpers.GetObjectValue(Owner.VolatileData.get_Branch(0)[0])).Value.ToString();
+                    #endregion
+
                     int zoomFadeLow = GH_Canvas.ZoomFadeLow;
+
+                    GH_PaletteStyle impliedStyle = GH_CapsuleRenderEngine.GetImpliedStyle(GH_Palette.Normal, Selected, Owner.Locked, false);
+
+                    SolidBrush input_words_solidBrush = new SolidBrush(Color.FromArgb(zoomFadeLow, impliedStyle.Text));
+                    graphics.DrawString("A", GH_FontServer.StandardAdjusted, input_words_solidBrush, rec_input_words, GH_TextRenderingConstants.FarCenter);
+                    graphics.DrawString("B", GH_FontServer.StandardAdjusted, input_words_solidBrush, rec_input_words, GH_TextRenderingConstants.CenterCenter);
+                    graphics.DrawString("C", GH_FontServer.StandardAdjusted, input_words_solidBrush, rec_input_words, GH_TextRenderingConstants.NearCenter);
+
                     if (zoomFadeLow > 0)
                     {
                         Owner.Slider.Render(graphics);
                         graphics.SmoothingMode = SmoothingMode.HighQuality;
                         if (zoomFadeLow < byte.MaxValue)
                         {
-                            GH_PaletteStyle impliedStyle = GH_CapsuleRenderEngine.GetImpliedStyle(GH_Palette.Normal, Selected, Owner.Locked, false);
+
+
                             SolidBrush solidBrush = new SolidBrush(Color.FromArgb(byte.MaxValue - zoomFadeLow, impliedStyle.Fill));
                             Rectangle bounds2 = Owner.Slider.Bounds;
                             bounds2.X += Owner.Slider.Padding.Left;

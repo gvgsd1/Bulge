@@ -1103,6 +1103,70 @@ namespace Bulge.Params.NumberSliderPlus
             m_changed = false;
         }
 
+        //public void Setup(GH_NumberSliderBackup owner)
+        //{
+        //    Text = "Slider: " + owner.NickName;
+        //    txtName.Text = owner.NickName;
+        //    txtExpression.Text = owner.Expression;
+        //    cache_lower = owner.Slider.Minimum;
+        //    cache_upper = owner.Slider.Maximum;
+        //    cache_value = owner.Slider.Value;
+        //    switch (owner.Slider.GripDisplay)
+        //    {
+        //        case GH_SliderGripDisplay.Numeric:
+        //            cmbGripStyle.SelectedIndex = 2;
+        //            break;
+        //        case GH_SliderGripDisplay.Shape:
+        //            cmbGripStyle.SelectedIndex = 0;
+        //            break;
+        //        case GH_SliderGripDisplay.ShapeAndText:
+        //            cmbGripStyle.SelectedIndex = 1;
+        //            break;
+        //    }
+        //    switch (owner.Slider.Type)
+        //    {
+        //        case GH_SliderAccuracy.Float:
+        //            m_rounding = 0;
+        //            break;
+        //        case GH_SliderAccuracy.Integer:
+        //            m_rounding = 1;
+        //            break;
+        //        case GH_SliderAccuracy.Even:
+        //            m_rounding = 2;
+        //            break;
+        //        case GH_SliderAccuracy.Odd:
+        //            m_rounding = 3;
+        //            break;
+        //    }
+        //    InvalidateRoundingPanels();
+        //    if (owner.Slider.Type == GH_SliderAccuracy.Float)
+        //    {
+        //        numLower.DecimalPlaces = owner.Slider.DecimalPlaces;
+        //        numUpper.DecimalPlaces = owner.Slider.DecimalPlaces;
+        //        numRange.DecimalPlaces = owner.Slider.DecimalPlaces;
+        //        numValue.DecimalPlaces = owner.Slider.DecimalPlaces;
+        //        sldValue.DecimalPlaces = owner.Slider.DecimalPlaces;
+        //    }
+        //    else
+        //    {
+        //        numLower.DecimalPlaces = 0;
+        //        numUpper.DecimalPlaces = 0;
+        //        numRange.DecimalPlaces = 0;
+        //        numValue.DecimalPlaces = 0;
+        //        sldValue.DecimalPlaces = 0;
+        //    }
+        //    numLower.Value = owner.Slider.Minimum;
+        //    numUpper.Value = owner.Slider.Maximum;
+        //    numValue.Value = owner.Slider.Value;
+        //    sldDigits.Value = new decimal(owner.Slider.DecimalPlaces);
+        //    sldValue.Minimum = owner.Slider.Minimum;
+        //    sldValue.Maximum = owner.Slider.Maximum;
+        //    sldValue.Value = owner.Slider.Value;
+        //    m_owner = owner;
+        //    FixUI();
+        //    m_changed = false;
+        //}
+
         private void FixUI()
         {
             if (m_owner == null)

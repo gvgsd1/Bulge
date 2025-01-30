@@ -31,12 +31,16 @@
     <Compile Remove="Params\NumberSliderPlus\GH_NumberSlider_Backup.cs" />
     <Compile Remove="Slider\backup\GH_NumberSlider1.cs" />
     <Compile Remove="Slider\backup\GH_NumberSliderAttributes1.cs" />
+    <Compile Remove="Slider\backup\GH_NumberSliderAttributesBackup.cs" />
+    <Compile Remove="Slider\backup\GH_NumberSliderBackup.cs" />
   </ItemGroup>
   
   <ItemGroup>
     <None Include="Params\NumberSliderPlus\GH_NumberSlider_Backup.cs" />
     <None Include="Slider\backup\GH_NumberSlider1.cs" />
     <None Include="Slider\backup\GH_NumberSliderAttributes1.cs" />
+    <None Include="Slider\backup\GH_NumberSliderAttributesBackup.cs" />
+    <None Include="Slider\backup\GH_NumberSliderBackup.cs" />
   </ItemGroup>
   
   <ItemGroup>
