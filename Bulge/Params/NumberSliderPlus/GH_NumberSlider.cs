@@ -1,10 +1,4 @@
-﻿// Decompiled with JetBrains decompiler
-// Type: Grasshopper.Kernel.Special.GH_NumberSlider
-// Assembly: Grasshopper, Version=7.33.23248.13001, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803
-// MVID: 5BB20879-33FF-4DFC-95F1-EEC62DAC6ECD
-// Assembly location: C:\Users\GV\Desktop\Grasshopper\Grasshopper.dll
-// XML documentation location: C:\Users\GV\Desktop\Grasshopper\Grasshopper.xml
-
+﻿
 using Bulge.Properties;
 using GH_IO.Serialization;
 using Grasshopper;
@@ -14,6 +8,7 @@ using Grasshopper.GUI.Canvas;
 using Grasshopper.GUI.HTML;
 using Grasshopper.GUI.RemotePanel;
 using Grasshopper.Kernel;
+using Grasshopper.Kernel.Data;
 using Grasshopper.Kernel.Expressions;
 using Grasshopper.Kernel.Special;
 using Grasshopper.Kernel.Types;
@@ -21,7 +16,9 @@ using Grasshopper.My.Resources;
 using Microsoft.VisualBasic.CompilerServices;
 using Rhino.Geometry;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -39,7 +36,7 @@ namespace Bulge.Params.NumberSliderPlus
         private readonly List<string> _snapRanges;
 
         public GH_NumberSlider()
-          : base(new GH_InstanceDescription("Number Slider +", "Number Slider +", "Numeric slider for single values", "Bulge", "Params"))
+          : base(new GH_InstanceDescription("Number Slider +", "Slider +", "Numeric slider for single values", "Bulge", "Params"))
         {
             m_slider = new GH_SliderBase();
             m_cache = decimal.MinValue;
@@ -66,6 +63,88 @@ namespace Bulge.Params.NumberSliderPlus
 
         public override void CreateAttributes() => m_attributes = (IGH_Attributes)new GH_NumberSliderAttributes(this);
 
+        //protected override void CollectVolatileData_FromSources()
+        //{
+        //    VolatileData.Clear();
+        //    if (SourceCount == 0)
+        //    {
+        //        return;
+        //    }
+
+        //    foreach (IGH_Param source in m_sources)
+        //    {
+        //        source.CollectData();
+        //        if (source.Phase != GH_SolutionPhase.Collected && source.Phase != GH_SolutionPhase.Computed)
+        //        {
+        //            continue;
+        //        }
+
+        //        Stopwatch stopwatch = new Stopwatch();
+        //        stopwatch.Start();
+        //        bool flag = false;
+        //        if (source.GetType().GUID == GetType().GUID)
+        //        {
+        //            m_data.MergeStructure((GH_Structure<T>)source.VolatileData);
+        //        }
+        //        else
+        //        {
+        //            int num = source.VolatileData.PathCount - 1;
+        //            for (int i = 0; i <= num; i++)
+        //            {
+        //                GH_Path path = source.VolatileData.get_Path(i);
+        //                IList list = source.VolatileData.get_Branch(i);
+        //                if (list.Count == 0)
+        //                {
+        //                    m_data.EnsurePath(path);
+        //                    continue;
+        //                }
+
+        //                foreach (IGH_Goo item in list)
+        //                {
+        //                    if (item == null)
+        //                    {
+        //                        m_data.Append(null, path);
+        //                        continue;
+        //                    }
+
+        //                    if (GH_Document.IsEscapeKeyDown())
+        //                    {
+        //                        OnPingDocument()?.RequestAbortSolution();
+        //                        ClearData();
+        //                        return;
+        //                    }
+
+        //                    T val = Cast_Object(item);
+        //                    if (val == null)
+        //                    {
+        //                        AddRuntimeMessage(GH_RuntimeMessageLevel.Error, $"Data conversion failed from {item.TypeName} to {TypeName}");
+        //                        m_data.Append(null, path);
+        //                        continue;
+        //                    }
+
+        //                    if (!flag && val is IGH_GeometricGoo iGH_GeometricGoo && iGH_GeometricGoo.IsReferencedGeometry)
+        //                    {
+        //                        GH_Document gH_Document = OnPingDocument();
+        //                        if (gH_Document != null)
+        //                        {
+        //                            gH_Document.ClearReferenceTable();
+        //                            flag = true;
+        //                        }
+        //                    }
+
+        //                    m_data.Append(val, path);
+        //                    ConversionCallback(item, val);
+        //                }
+        //            }
+        //        }
+
+        //        stopwatch.Stop();
+        //        _profiledSpan += stopwatch.Elapsed;
+        //    }
+
+        //    m_data.TrimExcess();
+        //}
+
         protected override void CollectVolatileData_Custom()
         {
             Slider.FixDomain();
@@ -73,7 +152,8 @@ namespace Bulge.Params.NumberSliderPlus
             m_data.Clear();
             if (!IsExpression)
             {
-                m_data.Append(new GH_Number(Convert.ToDouble(CurrentValue)));
+                //m_data.Append(new GH_Number(Convert.ToDouble(CurrentValue)));
+                m_data.Append(new GH_Number(5));
             }
             else
             {
@@ -592,7 +672,7 @@ namespace Bulge.Params.NumberSliderPlus
         public override string TypeName => "Number";
 
         /// <summary>Gets the Slider Component Guid.</summary>
-        public static Guid SliderGuid => new Guid("{4c64804d-fe29-4418-b0b8-7d2fb1f17d5a}");
+        public static Guid SliderGuid => new Guid("{bbbac0a1-509f-4fff-a0f4-e8fb443bfca6}");
 
         public override Guid ComponentGuid => SliderGuid;
 

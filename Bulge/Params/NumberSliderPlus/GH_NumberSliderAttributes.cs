@@ -16,6 +16,7 @@ using Grasshopper.Kernel.Types;
 using Grasshopper.Kernel.Undo;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.CompilerServices;
@@ -29,8 +30,9 @@ namespace Bulge.Params.NumberSliderPlus
         private static readonly int SliderMinWidth = 120;
         private int m_dragmode;
         private string m_cachedName;
-        private Rectangle m_boundsName;
-        private Rectangle m_boundsSlider;
+        private Rectangle rec_words;
+        private Rectangle rec_slider;
+        private RectangleF rec_input_words;
 
         public GH_NumberSliderAttributes(GH_NumberSlider nOwner)
           : base(nOwner)
@@ -39,6 +41,14 @@ namespace Bulge.Params.NumberSliderPlus
             ExpireLayout();
             Layout();
         }
+        //public override void AppendToAttributeTree(List<IGH_Attributes> attributes)
+        //{
+        //    attributes.Add((IGH_Attributes)this);
+        //    //foreach (IGH_Param ghParam in this.Owner.Params.Input)
+        //    //    attributes.Add(ghParam.Attributes);
+        //    //foreach (IGH_Param ghParam in this.Owner.Params.Output)
+        //    //    attributes.Add(ghParam.Attributes);
+        //}
 
         protected override void Layout()
         {
@@ -54,8 +64,11 @@ namespace Bulge.Params.NumberSliderPlus
             double y = (double)pivot.Y;
             double width = (double)sizeF.Width;
             double height = MinimumSize.Height;
-            m_boundsName = GH_Convert.ToRectangle(new RectangleF((float)x, (float)y, (float)width, (float)height));
-            m_boundsSlider = Rectangle.FromLTRB(m_boundsName.Right, m_boundsName.Top, Convert.ToInt32(Bounds.Right), m_boundsName.Bottom);
+
+            rec_input_words = new RectangleF(Pivot, new SizeF(22, 22));
+
+            rec_words = GH_Convert.ToRectangle(new RectangleF((float)x, (float)y, (float)width, (float)height));
+            rec_slider = Rectangle.FromLTRB(rec_words.Right, rec_words.Top, Convert.ToInt32(Bounds.Right), rec_words.Bottom);
             Owner.Slider.Font = GH_FontServer.StandardAdjusted;
             Owner.Slider.DrawControlBorder = false;
             Owner.Slider.DrawControlShadows = false;
@@ -66,7 +79,105 @@ namespace Bulge.Params.NumberSliderPlus
             Owner.Slider.TickDisplay = GH_SliderTickDisplay.Simple;
             Owner.Slider.RailDisplay = GH_SliderRailDisplay.Simple;
             Owner.Slider.Padding = new Padding(6, 2, 6, 1);
-            Owner.Slider.Bounds = m_boundsSlider;
+            Owner.Slider.Bounds = rec_slider;
+        }
+
+        protected override void Render(GH_Canvas canvas, Graphics graphics, GH_CanvasChannel channel)
+        {
+            switch (channel)
+            {
+                case GH_CanvasChannel.Wires:
+                    if (this.Owner.SourceCount <= 0)
+                        break;
+                    this.RenderIncomingWires(canvas.Painter, this.Owner.Sources, this.Owner.WireDisplay);
+                    break;
+                case GH_CanvasChannel.Objects:
+                    string impliedNickName = Owner.ImpliedNickName;
+                    if (m_cachedName == null || !impliedNickName.Equals(m_cachedName, StringComparison.Ordinal))
+                    {
+                        m_cachedName = impliedNickName;
+                        ExpireLayout();
+                        Layout();
+                    }
+                    GH_Viewport viewport = canvas.Viewport;
+                    RectangleF bounds1 = Bounds;
+                    ref RectangleF local = ref bounds1;
+                    int num = viewport.IsVisible(ref local, 10f) ? 1 : 0;
+                    Bounds = bounds1;
+                    if (num == 0)
+                        return;
+                    //int[] radii1 = new int[4] { 3, 0, 0, 3 };
+                    //int[] radii2 = new int[4] { 0, 3, 3, 0 };
+                    Rectangle boundbox = rec_words;
+                    boundbox.Width = rec_words.Width + 20;
+                    Rectangle textbox = rec_words;
+                    Rectangle rectangle = Rectangle.Empty;
+                    if (Owner.IsExpression)
+                    {
+                        //rectangle = this.rec_words with { Width = 20 };
+                        textbox = new Rectangle(textbox.X + 20, textbox.Y, textbox.Width - 20, textbox.Height);
+                    }
+                    GH_Capsule textCapsule;
+                    switch (Owner.RuntimeMessageLevel)
+                    {
+                        case GH_RuntimeMessageLevel.Warning:
+                            textCapsule = GH_Capsule.CreateTextCapsule(boundbox, textbox, GH_Palette.Warning, impliedNickName, 10, 0);
+                            break;
+                        case GH_RuntimeMessageLevel.Error:
+                            textCapsule = GH_Capsule.CreateTextCapsule(boundbox, textbox, GH_Palette.Error, impliedNickName, 10, 0);
+                            break;
+                        default:
+                            textCapsule = GH_Capsule.CreateTextCapsule(boundbox, textbox, GH_Palette.Hidden, impliedNickName, 10, 0);
+                            break;
+                    }
+                    textCapsule.AddInputGrip(InputGrip.Y);
+                    //textCapsule.Render(graphics, Selected, Owner.Locked, true);
+                    Utility.UtilityRender.Render(textCapsule, graphics, null, Selected, Owner.Locked, true);
+                    textCapsule.Dispose();
+                    if (Owner.IsExpression && !rectangle.IsEmpty)
+                    {
+                        //GH_StateTag_Expression stateTagExpression = new GH_StateTag_Expression(Owner.Expression);
+
+                        //stateTagExpression.Stage = new Rectangle(rectangle.X + rectangle.Width / 2 - 8, rectangle.Y + rectangle.Height / 2 - 8, 16, 16);
+
+                        //stateTagExpression.Render(graphics);
+                    }
+                    GH_Capsule capsule = GH_Capsule.CreateCapsule(rec_slider, GH_Palette.Normal, 10, 0);
+                    capsule.AddOutputGrip(OutputGrip.Y);
+                    //capsule.Render(graphics, Selected, Owner.Locked, false);
+                    Utility.UtilityRender.Render(capsule, graphics, null, Selected, Owner.Locked, false);
+                    capsule.Dispose();
+                    if (!Owner.IsExpression || Owner.VolatileDataCount == 0)
+                        Owner.Slider.FormatMask = "{0}";
+                    else
+                        Owner.Slider.FormatMask = ((GH_Goo<double>)RuntimeHelpers.GetObjectValue(Owner.VolatileData.get_Branch(0)[0])).Value.ToString();
+                    int zoomFadeLow = GH_Canvas.ZoomFadeLow;
+                    if (zoomFadeLow > 0)
+                    {
+                        Owner.Slider.Render(graphics);
+                        graphics.SmoothingMode = SmoothingMode.HighQuality;
+                        if (zoomFadeLow < byte.MaxValue)
+                        {
+                            GH_PaletteStyle impliedStyle = GH_CapsuleRenderEngine.GetImpliedStyle(GH_Palette.Normal, Selected, Owner.Locked, false);
+                            SolidBrush solidBrush = new SolidBrush(Color.FromArgb(byte.MaxValue - zoomFadeLow, impliedStyle.Fill));
+                            Rectangle bounds2 = Owner.Slider.Bounds;
+                            bounds2.X += Owner.Slider.Padding.Left;
+                            bounds2.Y += Owner.Slider.Padding.Top;
+                            bounds2.Width -= Owner.Slider.Padding.Horizontal;
+                            bounds2.Height -= Owner.Slider.Padding.Vertical;
+                            graphics.FillRectangle(solidBrush, bounds2);
+                            solidBrush.Dispose();
+                        }
+                    }
+                    if (m_dragmode <= 0 || !Owner.IsExpression)
+                        return;
+                    PointF location = Owner.Slider.Grip.Location;
+                    location.X += 0.5f * Owner.Slider.Grip.Width;
+                    RectangleF bounds3 = Bounds;
+                    bounds3.Inflate(1000f, 1000f);
+                    GH_GraphicsUtil.RenderBalloonTag(graphics, "Original: " + Owner.Slider.GripTextPure, GH_FontServer.StandardAdjusted, location, bounds3);
+                    break;
+            }
         }
 
         public override GH_ObjectResponse RespondToMouseDoubleClick(
@@ -76,7 +187,7 @@ namespace Bulge.Params.NumberSliderPlus
             GH_ObjectResponse mouseDoubleClick;
             if (e.Button == MouseButtons.Left)
             {
-                if ((double)sender.Viewport.Zoom >= 0.9 && m_boundsSlider.Contains(GH_Convert.ToPoint(e.CanvasLocation)))
+                if ((double)sender.Viewport.Zoom >= 0.9 && rec_slider.Contains(GH_Convert.ToPoint(e.CanvasLocation)))
                 {
                     string gripTextPure = Owner.Slider.GripTextPure;
                     if (Owner.IsExpression)
@@ -203,103 +314,7 @@ namespace Bulge.Params.NumberSliderPlus
 
         public override bool TooltipEnabled => true;
 
-        protected override void Render(GH_Canvas canvas, Graphics graphics, GH_CanvasChannel channel)
-        {
-            switch (channel)
-            {
-                case GH_CanvasChannel.Wires:
-                    if (this.Owner.SourceCount <= 0)
-                        break;
-                    this.RenderIncomingWires(canvas.Painter, this.Owner.Sources, this.Owner.WireDisplay);
-                    break;
-                case GH_CanvasChannel.Objects:
-                    string impliedNickName = Owner.ImpliedNickName;
-                    if (m_cachedName == null || !impliedNickName.Equals(m_cachedName, StringComparison.Ordinal))
-                    {
-                        m_cachedName = impliedNickName;
-                        ExpireLayout();
-                        Layout();
-                    }
-                    GH_Viewport viewport = canvas.Viewport;
-                    RectangleF bounds1 = Bounds;
-                    ref RectangleF local = ref bounds1;
-                    int num = viewport.IsVisible(ref local, 10f) ? 1 : 0;
-                    Bounds = bounds1;
-                    if (num == 0)
-                        return;
-                    //int[] radii1 = new int[4] { 3, 0, 0, 3 };
-                    //int[] radii2 = new int[4] { 0, 3, 3, 0 };
-                    Rectangle boundbox = m_boundsName;
-                    boundbox.Width = m_boundsName.Width + 20;
-                    Rectangle textbox = m_boundsName;
-                    Rectangle rectangle = Rectangle.Empty;
-                    if (Owner.IsExpression)
-                    {
-                        //rectangle = this.m_boundsName with { Width = 20 };
-                        textbox = new Rectangle(textbox.X + 20, textbox.Y, textbox.Width - 20, textbox.Height);
-                    }
-                    GH_Capsule textCapsule;
-                    switch (Owner.RuntimeMessageLevel)
-                    {
-                        case GH_RuntimeMessageLevel.Warning:
-                            textCapsule = GH_Capsule.CreateTextCapsule(boundbox, textbox, GH_Palette.Warning, impliedNickName, 10, 0);
-                            break;
-                        case GH_RuntimeMessageLevel.Error:
-                            textCapsule = GH_Capsule.CreateTextCapsule(boundbox, textbox, GH_Palette.Error, impliedNickName, 10, 0);
-                            break;
-                        default:
-                            textCapsule = GH_Capsule.CreateTextCapsule(boundbox, textbox, GH_Palette.Hidden, impliedNickName, 10, 0);
-                            break;
-                    }
-                    textCapsule.AddInputGrip(InputGrip.Y);
-                    //textCapsule.Render(graphics, Selected, Owner.Locked, true);
-                    Utility.UtilityRender.Render(textCapsule, graphics, null, Selected, Owner.Locked, true);
-                    textCapsule.Dispose();
-                    if (Owner.IsExpression && !rectangle.IsEmpty)
-                    {
-                        //GH_StateTag_Expression stateTagExpression = new GH_StateTag_Expression(Owner.Expression);
-
-                        //stateTagExpression.Stage = new Rectangle(rectangle.X + rectangle.Width / 2 - 8, rectangle.Y + rectangle.Height / 2 - 8, 16, 16);
-
-                        //stateTagExpression.Render(graphics);
-                    }
-                    GH_Capsule capsule = GH_Capsule.CreateCapsule(m_boundsSlider, GH_Palette.Normal, 10, 0);
-                    capsule.AddOutputGrip(OutputGrip.Y);
-                    //capsule.Render(graphics, Selected, Owner.Locked, false);
-                    Utility.UtilityRender.Render(capsule, graphics, null, Selected, Owner.Locked, false);
-                    capsule.Dispose();
-                    if (!Owner.IsExpression || Owner.VolatileDataCount == 0)
-                        Owner.Slider.FormatMask = "{0}";
-                    else
-                        Owner.Slider.FormatMask = ((GH_Goo<double>)RuntimeHelpers.GetObjectValue(Owner.VolatileData.get_Branch(0)[0])).Value.ToString();
-                    int zoomFadeLow = GH_Canvas.ZoomFadeLow;
-                    if (zoomFadeLow > 0)
-                    {
-                        Owner.Slider.Render(graphics);
-                        graphics.SmoothingMode = SmoothingMode.HighQuality;
-                        if (zoomFadeLow < byte.MaxValue)
-                        {
-                            GH_PaletteStyle impliedStyle = GH_CapsuleRenderEngine.GetImpliedStyle(GH_Palette.Normal, Selected, Owner.Locked, false);
-                            SolidBrush solidBrush = new SolidBrush(Color.FromArgb(byte.MaxValue - zoomFadeLow, impliedStyle.Fill));
-                            Rectangle bounds2 = Owner.Slider.Bounds;
-                            bounds2.X += Owner.Slider.Padding.Left;
-                            bounds2.Y += Owner.Slider.Padding.Top;
-                            bounds2.Width -= Owner.Slider.Padding.Horizontal;
-                            bounds2.Height -= Owner.Slider.Padding.Vertical;
-                            graphics.FillRectangle(solidBrush, bounds2);
-                            solidBrush.Dispose();
-                        }
-                    }
-                    if (m_dragmode <= 0 || !Owner.IsExpression)
-                        return;
-                    PointF location = Owner.Slider.Grip.Location;
-                    location.X += 0.5f * Owner.Slider.Grip.Width;
-                    RectangleF bounds3 = Bounds;
-                    bounds3.Inflate(1000f, 1000f);
-                    GH_GraphicsUtil.RenderBalloonTag(graphics, "Original: " + Owner.Slider.GripTextPure, GH_FontServer.StandardAdjusted, location, bounds3);
-                    break;
-            }
-        }
+        
 
         private class SliderDragUndo : GH_ObjectUndoAction
         {

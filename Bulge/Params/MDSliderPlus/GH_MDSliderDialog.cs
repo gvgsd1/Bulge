@@ -49,7 +49,6 @@ namespace Bulge.Params.MDSliderPlus
             lblZDomain = new Label();
             txtYDomain = new TextBox();
             lblYDomain = new Label();
-            chkThreeDee = new CheckBox();
             lblXDomain = new Label();
             txtXDomain = new TextBox();
             pnlButtons.SuspendLayout();
@@ -87,7 +86,6 @@ namespace Bulge.Params.MDSliderPlus
             tblControls.Controls.Add(lblZDomain, 0, 3);
             tblControls.Controls.Add(txtYDomain, 1, 2);
             tblControls.Controls.Add(lblYDomain, 0, 2);
-            tblControls.Controls.Add(chkThreeDee, 0, 0);
             tblControls.Controls.Add(lblXDomain, 0, 1);
             tblControls.Controls.Add(txtXDomain, 1, 1);
             tblControls.Dock = DockStyle.Fill;
@@ -136,17 +134,7 @@ namespace Bulge.Params.MDSliderPlus
             lblYDomain.TabIndex = 3;
             lblYDomain.Text = "Y-Domain";
             lblYDomain.TextAlign = ContentAlignment.MiddleCenter;
-            chkThreeDee.AutoSize = true;
-            tblControls.SetColumnSpan(chkThreeDee, 2);
-            chkThreeDee.Dock = DockStyle.Fill;
-            chkThreeDee.Enabled = false;
-            chkThreeDee.Location = new System.Drawing.Point(7, 2);
-            chkThreeDee.Margin = new Padding(5, 0, 0, 0);
-            chkThreeDee.Name = "chkThreeDee";
-            chkThreeDee.Size = new Size(233, 20);
-            chkThreeDee.TabIndex = 0;
-            chkThreeDee.Text = "Three-dimensional GUI";
-            chkThreeDee.UseVisualStyleBackColor = true;
+
             lblXDomain.Dock = DockStyle.Fill;
             lblXDomain.Location = new System.Drawing.Point(7, 24);
             lblXDomain.Margin = new Padding(5, 0, 0, 0);
@@ -195,9 +183,6 @@ namespace Bulge.Params.MDSliderPlus
 
         [field: AccessedThroughProperty("tblControls")]
         internal virtual TableLayoutPanel tblControls { get; [MethodImpl(MethodImplOptions.Synchronized)] set; }
-
-        [field: AccessedThroughProperty("chkThreeDee")]
-        internal virtual CheckBox chkThreeDee { get; [MethodImpl(MethodImplOptions.Synchronized)] set; }
 
         [field: AccessedThroughProperty("lblXDomain")]
         internal virtual Label lblXDomain { get; [MethodImpl(MethodImplOptions.Synchronized)] set; }
@@ -264,17 +249,17 @@ namespace Bulge.Params.MDSliderPlus
 
         public void LoadSettings(GH_MultiDimensionalSlider owner)
         {
-            chkThreeDee.Checked = owner.SliderMode == GH_MDSliderMode._3d;
+            
             txtXDomain.Text = GH_Format.FormatInterval(owner.XInterval);
             txtYDomain.Text = GH_Format.FormatInterval(owner.YInterval);
             txtZDomain.Text = GH_Format.FormatInterval(owner.ZInterval);
-            txtZDomain.Enabled = owner.SliderMode == GH_MDSliderMode._3d;
+            
             lblZDomain.Enabled = txtZDomain.Enabled;
         }
 
         public void SaveSettings(GH_MultiDimensionalSlider owner)
         {
-            owner.SliderMode = !chkThreeDee.Checked ? GH_MDSliderMode._2d : GH_MDSliderMode._3d;
+            
             Interval rc = Interval.Unset;
             if (GH_Convert.ToInterval(txtXDomain.Text, ref rc, GH_Conversion.Secondary))
                 owner.XInterval = rc;

@@ -10,6 +10,7 @@ using Grasshopper.My.Resources;
 using Microsoft.VisualBasic.CompilerServices;
 using Rhino.Geometry;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -17,34 +18,35 @@ using System.Windows.Forms;
 namespace Bulge.Params.MDSliderPlus
 {
     /// <exclude />
-    public class GH_MultiDimensionalSlider : GH_Param<GH_Point>, IGH_StateAwareObject
+    public class GH_MultiDimensionalSlider : GH_Component, IGH_StateAwareObject
     {
         private Point3d m_value;
-        private GH_MDSliderMode m_mode;
         private Interval m_x;
         private Interval m_y;
         private Interval m_z;
 
         public GH_MultiDimensionalSlider()
-          : base(new GH_InstanceDescription("MD Slider +", "MD Slider  +", "A multidimensional slider", "Bulge", "Params"))
+          : base("MD Slider +", "MD Slider  +", "A multidimensional slider", "Bulge", "Params")
         {
             m_value = new Point3d(0.5, 0.5, 0.5);
-            m_mode = GH_MDSliderMode._2d;
             m_x = new Interval(0.0, 1.0);
             m_y = new Interval(0.0, 1.0);
             m_z = new Interval(0.0, 1.0);
         }
 
-        public override void CreateAttributes()
+        protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            m_attributes = new GH_MultiDimensionalSliderAttributes(this);
+            
+            pManager.AddIntervalParameter("X Domain", "X", "X Domain", 0, new Interval(0.0, 1.0));
+            pManager.AddIntervalParameter("Y Domain", "Y", "Y Domain", 0, new Interval(0.0, 1.0));
+            pManager.AddNumberParameter("Z Value", "Z", "Z Value", 0, 0);
         }
 
-        public GH_MDSliderMode SliderMode
-        {
-            get => m_mode;
-            set => m_mode = value;
-        }
+        protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager) => pManager.AddPointParameter("Point", "P", "Output point", (GH_ParamAccess)1);
+
+
+        public override void CreateAttributes() => m_attributes = new GH_MultiDimensionalSliderAttributes(this);
+
 
         /// <summary>Gets the normalized values of the slider.</summary>
         public Point3d Value
@@ -77,7 +79,6 @@ namespace Bulge.Params.MDSliderPlus
 
         public double Z => ((Interval)m_z).ParameterAt(m_value.Z);
 
-        public override GH_ParamKind Kind => GH_ParamKind.floating;
 
         public void DisplaySliderSettings()
         {
@@ -92,13 +93,26 @@ namespace Bulge.Params.MDSliderPlus
             ExpireSolution(true);
         }
 
-        protected override void CollectVolatileData_Custom()
+        //protected override void CollectVolatileData_Custom()
+        //{
+        //    m_data.Clear();
+        //    if (SliderMode == GH_MDSliderMode._2d)
+        //        m_data.Append(new GH_Point(new Point3d(X, Y, 0.0)), new GH_Path(0));
+        //    else
+        //        m_data.Append(new GH_Point(new Point3d(X, Y, Z)), new GH_Path(0));
+
+
+        protected override void SolveInstance(IGH_DataAccess DA)
         {
-            m_data.Clear();
-            if (SliderMode == GH_MDSliderMode._2d)
-                m_data.Append(new GH_Point(new Point3d(X, Y, 0.0)), new GH_Path(0));
-            else
-                m_data.Append(new GH_Point(new Point3d(X, Y, Z)), new GH_Path(0));
+            Interval input_XInterval = Interval.Unset;
+            Interval input_YInterval = Interval.Unset;
+            double zValue = double.NaN;
+            DA.GetData<Interval>(0, ref input_XInterval);
+            DA.GetData<Interval>(1, ref input_YInterval);
+            DA.GetData<double>(2, ref zValue);
+            XInterval = input_XInterval;
+            YInterval = input_YInterval;
+            DA.SetData(0, new GH_Point(new Point3d(X, Y, zValue)));
         }
 
         public override GH_Exposure Exposure => GH_Exposure.secondary;
@@ -113,7 +127,6 @@ namespace Bulge.Params.MDSliderPlus
             writer.SetInterval1D("x_domain", new GH_Interval1D(m_x.Min, m_x.Max));
             writer.SetInterval1D("y_domain", new GH_Interval1D(m_y.Min, m_y.Max));
             writer.SetInterval1D("z_domain", new GH_Interval1D(m_z.Min, m_z.Max));
-            writer.SetInt32("SliderMode", (int)m_mode);
             return true;
         }
 
@@ -129,7 +142,7 @@ namespace Bulge.Params.MDSliderPlus
             m_z = new Interval(interval1D3.a, interval1D3.b);
             int num = 0;
             reader.TryGetInt32("SliderMode", ref num);
-            m_mode = num != 1 ? GH_MDSliderMode._2d : GH_MDSliderMode._3d;
+            
             return true;
         }
 

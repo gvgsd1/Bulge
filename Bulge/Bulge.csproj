@@ -29,10 +29,14 @@
     <Compile Remove="Params\MySimpleIntegerParameter.cs" />
     <Compile Remove="Params\MySimpleIntegerParameterAttributes.cs" />
     <Compile Remove="Params\NumberSliderPlus\GH_NumberSlider_Backup.cs" />
+    <Compile Remove="Slider\backup\GH_NumberSlider1.cs" />
+    <Compile Remove="Slider\backup\GH_NumberSliderAttributes1.cs" />
   </ItemGroup>
   
   <ItemGroup>
     <None Include="Params\NumberSliderPlus\GH_NumberSlider_Backup.cs" />
+    <None Include="Slider\backup\GH_NumberSlider1.cs" />
+    <None Include="Slider\backup\GH_NumberSliderAttributes1.cs" />
   </ItemGroup>
   
   <ItemGroup>
