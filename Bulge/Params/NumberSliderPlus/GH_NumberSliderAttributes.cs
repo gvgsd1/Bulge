@@ -87,9 +87,13 @@ namespace Bulge.Params.NumberSliderPlus
             switch (channel)
             {
                 case GH_CanvasChannel.Wires:
-                    if (this.Owner.SourceCount <= 0)
-                        break;
-                    this.RenderIncomingWires(canvas.Painter, this.Owner.Sources, this.Owner.WireDisplay);
+                    //if (this.Owner.SourceCount <= 0)
+                    //    break;
+                    //this.RenderIncomingWires(canvas.Painter, this.Owner.Sources, this.Owner.WireDisplay);
+
+                    foreach (IGH_DocumentObject ghDocumentObject in this.Owner.Params.Input)
+                        ghDocumentObject.Attributes.RenderToCanvas(canvas, GH_CanvasChannel.Wires);
+
                     break;
                 case GH_CanvasChannel.Objects:
                     string impliedNickName = Owner.ImpliedNickName;
@@ -147,10 +151,10 @@ namespace Bulge.Params.NumberSliderPlus
                     //capsule.Render(graphics, Selected, Owner.Locked, false);
                     Utility.UtilityRender.Render(capsule, graphics, null, Selected, Owner.Locked, false);
                     capsule.Dispose();
-                    if (!Owner.IsExpression || Owner.VolatileDataCount == 0)
-                        Owner.Slider.FormatMask = "{0}";
-                    else
-                        Owner.Slider.FormatMask = ((GH_Goo<double>)RuntimeHelpers.GetObjectValue(Owner.VolatileData.get_Branch(0)[0])).Value.ToString();
+                    //if (!Owner.IsExpression || Owner.VolatileDataCount == 0)
+                    //    Owner.Slider.FormatMask = "{0}";
+                    //else
+                    //    Owner.Slider.FormatMask = ((GH_Goo<double>)RuntimeHelpers.GetObjectValue(Owner.VolatileData.get_Branch(0)[0])).Value.ToString();
                     int zoomFadeLow = GH_Canvas.ZoomFadeLow;
                     if (zoomFadeLow > 0)
                     {

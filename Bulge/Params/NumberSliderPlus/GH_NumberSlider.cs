@@ -26,9 +26,7 @@ using System.Windows.Forms;
 namespace Bulge.Params.NumberSliderPlus
 {
     /// <exclude />
-    public class GH_NumberSlider :
-      GH_Param<GH_Number>,
-      IGH_StateAwareObject
+    public class GH_NumberSlider : GH_Component, IGH_StateAwareObject
     {
         private readonly GH_SliderBase m_slider;
         private decimal m_cache;
@@ -36,7 +34,7 @@ namespace Bulge.Params.NumberSliderPlus
         private readonly List<string> _snapRanges;
 
         public GH_NumberSlider()
-          : base(new GH_InstanceDescription("Number Slider +", "Slider +", "Numeric slider for single values", "Bulge", "Params"))
+          : base("Number Slider +", "Slider +", "Numeric slider for single values", "Bulge", "Params")
         {
             m_slider = new GH_SliderBase();
             m_cache = decimal.MinValue;
@@ -51,6 +49,32 @@ namespace Bulge.Params.NumberSliderPlus
             m_slider.Font = GH_FontServer.StandardAdjusted;
             ResetCurrentValue();
             m_slider.ValueChanged += new GH_SliderBase.ValueChangedEventHandler(InternalSliderValueChanged);
+        }
+
+        protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
+        {
+
+            pManager.AddIntervalParameter("X Domain", "X", "X Domain", 0, new Interval(0.0, 1.0));
+            pManager.AddIntervalParameter("Y Domain", "Y", "Y Domain", 0, new Interval(0.0, 1.0));
+            pManager.AddNumberParameter("Z Value", "Z", "Z Value", 0, 0);
+        }
+
+        protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
+        {
+            pManager.AddPointParameter("Point", "P", "Output point", (GH_ParamAccess)1);
+        }
+
+        protected override void SolveInstance(IGH_DataAccess DA)
+        {
+            //Interval input_XInterval = Interval.Unset;
+            //Interval input_YInterval = Interval.Unset;
+            //double zValue = double.NaN;
+            //DA.GetData<Interval>(0, ref input_XInterval);
+            //DA.GetData<Interval>(1, ref input_YInterval);
+            //DA.GetData<double>(2, ref zValue);
+            //XInterval = input_XInterval;
+            //YInterval = input_YInterval;
+            //DA.SetData(0, new GH_Point(new Point3d(X, Y, zValue)));
         }
 
         private void InternalSliderValueChanged(object sender, GH_SliderEventArgs e)
@@ -145,68 +169,68 @@ namespace Bulge.Params.NumberSliderPlus
         //    m_data.TrimExcess();
         //}
 
-        protected override void CollectVolatileData_Custom()
-        {
-            Slider.FixDomain();
-            Slider.FixValue();
-            m_data.Clear();
-            if (!IsExpression)
-            {
-                //m_data.Append(new GH_Number(Convert.ToDouble(CurrentValue)));
-                m_data.Append(new GH_Number(5));
-            }
-            else
-            {
-                string Expression = GH_ExpressionSyntaxWriter.RewriteForEvaluator(m_expression);
-                try
-                {
-                    GH_ExpressionParser expressionParser = new GH_ExpressionParser();
-                    expressionParser.CacheSymbols(Expression);
-                    expressionParser.ClearVariables();
-                    expressionParser.AddVariable("x", Convert.ToDouble(Slider.Value));
-                    GH_Variant ghVariant = expressionParser.Evaluate();
-                    if (ghVariant.IsNumeric)
-                    {
-                        m_data.Append(new GH_Number(ghVariant._Double));
-                        return;
-                    }
-                    m_data.Append(new GH_Number(double.NaN));
-                    AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Expression did not return a numeric value");
-                    return;
-                }
-                catch (Exception ex)
-                {
-                    ProjectData.SetProjectError(ex);
-                    ProjectData.ClearProjectError();
-                }
-                try
-                {
-                    GH_ExpressionParser expressionParser = new GH_ExpressionParser();
-                    expressionParser.CacheSymbols(Expression);
-                    expressionParser.ClearVariables();
-                    expressionParser.AddVariable(NickName, Convert.ToDouble(Slider.Value));
-                    GH_Variant ghVariant = expressionParser.Evaluate();
-                    if (ghVariant.IsNumeric)
-                    {
-                        m_data.Append(new GH_Number(ghVariant._Double));
-                    }
-                    else
-                    {
-                        m_data.Append(new GH_Number(double.NaN));
-                        AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Expression did not return a numeric value");
-                    }
-                    AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Expression uses Slider Name, please change it to \"x\"");
-                }
-                catch (Exception ex)
-                {
-                    ProjectData.SetProjectError(ex);
-                    Exception exception = ex;
-                    m_data.Append(new GH_Number(double.NaN));
-                    AddRuntimeMessage(GH_RuntimeMessageLevel.Error, string.Format("Expression generated an error: {0}", exception.Message));
-                    ProjectData.ClearProjectError();
-                }
-            }
-        }
+        //protected override void CollectVolatileData_Custom()
+        //{
+        //    Slider.FixDomain();
+        //    Slider.FixValue();
+        //    m_data.Clear();
+        //    if (!IsExpression)
+        //    {
+        //        //m_data.Append(new GH_Number(Convert.ToDouble(CurrentValue)));
+        //        m_data.Append(new GH_Number(5));
+        //    }
+        //    else
+        //    {
+        //        string Expression = GH_ExpressionSyntaxWriter.RewriteForEvaluator(m_expression);
+        //        try
+        //        {
+        //            GH_ExpressionParser expressionParser = new GH_ExpressionParser();
+        //            expressionParser.CacheSymbols(Expression);
+        //            expressionParser.ClearVariables();
+        //            expressionParser.AddVariable("x", Convert.ToDouble(Slider.Value));
+        //            GH_Variant ghVariant = expressionParser.Evaluate();
+        //            if (ghVariant.IsNumeric)
+        //            {
+        //                m_data.Append(new GH_Number(ghVariant._Double));
+        //                return;
+        //            }
+        //            m_data.Append(new GH_Number(double.NaN));
+        //            AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Expression did not return a numeric value");
+        //            return;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            ProjectData.SetProjectError(ex);
+        //            ProjectData.ClearProjectError();
+        //        }
+        //        try
+        //        {
+        //            GH_ExpressionParser expressionParser = new GH_ExpressionParser();
+        //            expressionParser.CacheSymbols(Expression);
+        //            expressionParser.ClearVariables();
+        //            expressionParser.AddVariable(NickName, Convert.ToDouble(Slider.Value));
+        //            GH_Variant ghVariant = expressionParser.Evaluate();
+        //            if (ghVariant.IsNumeric)
+        //            {
+        //                m_data.Append(new GH_Number(ghVariant._Double));
+        //            }
+        //            else
+        //            {
+        //                m_data.Append(new GH_Number(double.NaN));
+        //                AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Expression did not return a numeric value");
+        //            }
+        //            AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Expression uses Slider Name, please change it to \"x\"");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            ProjectData.SetProjectError(ex);
+        //            Exception exception = ex;
+        //            m_data.Append(new GH_Number(double.NaN));
+        //            AddRuntimeMessage(GH_RuntimeMessageLevel.Error, string.Format("Expression generated an error: {0}", exception.Message));
+        //            ProjectData.ClearProjectError();
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Gets the internal slider instance. Do not muck about with this unless you know what you are doing.
@@ -456,17 +480,17 @@ namespace Bulge.Params.NumberSliderPlus
 
         private void Menu_ExpressionEditorClick(object sender, EventArgs e)
         {
-            GH_ExpressionEditor F = new GH_ExpressionEditor();
-            F.PreviewDelegate = new GH_ExpressionEditor.GH_PreviewExpression(ExpressionEditorPreviewButtonClicked);
-            F.Expression = m_expression;
-            GH_Number ghNumber = m_data.get_FirstItem(true);
-            if (ghNumber == null)
-                F.Variables.Add("x", new GH_Variant(0.0));
-            else
-                F.Variables.Add("x", new GH_Variant(ghNumber.Value));
-            GH_WindowsFormUtil.CenterFormOnCursor(F, true);
-            if (F.ShowDialog(Instances.DocumentEditor) == DialogResult.OK)
-                Expression = F.Expression;
+            //GH_ExpressionEditor F = new GH_ExpressionEditor();
+            //F.PreviewDelegate = new GH_ExpressionEditor.GH_PreviewExpression(ExpressionEditorPreviewButtonClicked);
+            //F.Expression = m_expression;
+            //GH_Number ghNumber = m_data.get_FirstItem(true);
+            //if (ghNumber == null)
+            //    F.Variables.Add("x", new GH_Variant(0.0));
+            //else
+            //    F.Variables.Add("x", new GH_Variant(ghNumber.Value));
+            //GH_WindowsFormUtil.CenterFormOnCursor(F, true);
+            //if (F.ShowDialog(Instances.DocumentEditor) == DialogResult.OK)
+            //    Expression = F.Expression;
             ExpireSolution(true);
         }
 
@@ -638,38 +662,39 @@ namespace Bulge.Params.NumberSliderPlus
         {
             get
             {
-                string impliedNickName;
-                if (NickName.Length > 0)
-                    impliedNickName = NickName;
-                else if (Recipients.Count == 0)
-                {
-                    impliedNickName = "Slider";
-                }
-                else
-                {
-                    string str = "Slider";
-                    double num1 = double.MaxValue;
-                    int num2 = Recipients.Count - 1;
-                    for (int index = 0; index <= num2; ++index)
-                    {
-                        double num3 = (double)GH_GraphicsUtil.DistanceS(Attributes.OutputGrip, Recipients[index].Attributes.InputGrip);
-                        if (num3 < num1)
-                        {
-                            num1 = num3;
-                            str = Recipients[index].Name;
-                        }
-                    }
-                    impliedNickName = str;
-                }
-                return impliedNickName;
+                //string impliedNickName;
+                //if (NickName.Length > 0)
+                //    impliedNickName = NickName;
+                //else if (Recipients.Count == 0)
+                //{
+                //    impliedNickName = "Slider";
+                //}
+                //else
+                //{
+                //    string str = "Slider";
+                //    double num1 = double.MaxValue;
+                //    int num2 = Recipients.Count - 1;
+                //    for (int index = 0; index <= num2; ++index)
+                //    {
+                //        double num3 = (double)GH_GraphicsUtil.DistanceS(Attributes.OutputGrip, Recipients[index].Attributes.InputGrip);
+                //        if (num3 < num1)
+                //        {
+                //            num1 = num3;
+                //            str = Recipients[index].Name;
+                //        }
+                //    }
+                //    impliedNickName = str;
+                //}
+                //return impliedNickName;
+                return "Slider";
             }
         }
 
-        public override GH_ParamKind Kind => GH_ParamKind.floating;
+        //public override GH_ParamKind Kind => GH_ParamKind.floating;
 
-        public override GH_ParamData DataType => GH_ParamData.local;
+        //public override GH_ParamData DataType => GH_ParamData.local;
 
-        public override string TypeName => "Number";
+        //public override string TypeName => "Number";
 
         /// <summary>Gets the Slider Component Guid.</summary>
         public static Guid SliderGuid => new Guid("{bbbac0a1-509f-4fff-a0f4-e8fb443bfca6}");
@@ -873,6 +898,7 @@ namespace Bulge.Params.NumberSliderPlus
         }
 
         public IRcpItem PublishRcpItem() => new GH_NumberSliderPublishProxy(this);
+
 
         private enum InitNotation
         {
