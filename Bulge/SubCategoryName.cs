@@ -8,9 +8,11 @@ namespace Bulge
 {
     public static class SubCategoryName
     {
-        public const String CANVAS = "\u200B\u200B\u200B\u200BCanvas";
-        public const String SHAPEWAYS = "\u200B\u200B\u200BShapeways";
-        public const String EXTRA = "\u200B\u200BExtra";
-        public const String APPBUILDER = "\u200BApp Builder";
+        public const String CANVAS = "\u200B\u200B\u200B\u200B\u200B\u200BCanvas";
+        public const String PARAMS = "\u200B\u200B\u200B\u200B\u200B​Params";
+        public const String MATHS = "\u200B\u200B\u200B​\u200BMaths";
+        public const String SETS = "\u200B\u200B\u200BSets";
+        public const String VECTOR = "\u200B\u200BV​ector";
+        public const String CURVE = "\u200BCurve";
     }
 }

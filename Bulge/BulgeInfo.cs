@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Reflection;
+using Bulge.Properties;
 using Grasshopper;
 using Grasshopper.Kernel;
 
@@ -10,7 +12,7 @@ namespace Bulge
         public override string Name => "Bulge";
 
         //Return a 24x24 pixel bitmap to represent this GHA library.
-        public override Bitmap Icon => null;
+        public override Bitmap Icon => Resources.IconBulge;
 
         //Return a short string describing the purpose of this GHA library.
         public override string Description => "";

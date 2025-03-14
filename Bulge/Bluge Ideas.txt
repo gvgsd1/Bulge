@@ -1,8 +1,8 @@
 bluge ideas
 
-canvas clean
-canvas default
-canvas custome
+DONE - canvas clean
+DONE - canvas default
+WIP - canvas custome
 canvas rainbow
 
 slider with min and max input
@@ -11,7 +11,7 @@ md slider with multiple point
 
 vector picker
 plane picker
-vector from degree
+DONE - vector from degree
 
 gene pool of bool
 gene pool that change number
@@ -19,7 +19,7 @@ gene pool that flip bool
 gene pool of color
 gene pool mix input
 
-remap plus (with default 0 and 1)
+DONE - remap plus (with default 0 and 1)
 
 
 variable step series

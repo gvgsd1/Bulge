@@ -63,9 +63,9 @@ namespace Bulge.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _44316481 {
+        internal static System.Drawing.Bitmap IconBulge {
             get {
-                object obj = ResourceManager.GetObject("_44316481", resourceCulture);
+                object obj = ResourceManager.GetObject("IconBulge", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,89 @@ namespace Bulge.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap S44316481 {
+        internal static System.Drawing.Bitmap IconCanvasClean {
             get {
-                object obj = ResourceManager.GetObject("S44316481", resourceCulture);
+                object obj = ResourceManager.GetObject("IconCanvasClean", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconCanvasCleanPlus {
+            get {
+                object obj = ResourceManager.GetObject("IconCanvasCleanPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconCanvasCustom {
+            get {
+                object obj = ResourceManager.GetObject("IconCanvasCustom", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconCanvasDefault {
+            get {
+                object obj = ResourceManager.GetObject("IconCanvasDefault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconMDSliderPlus {
+            get {
+                object obj = ResourceManager.GetObject("IconMDSliderPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconRemapPlus {
+            get {
+                object obj = ResourceManager.GetObject("IconRemapPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconRemapPlusPlus {
+            get {
+                object obj = ResourceManager.GetObject("IconRemapPlusPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconSliderPlus {
+            get {
+                object obj = ResourceManager.GetObject("IconSliderPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconTogglePlus {
+            get {
+                object obj = ResourceManager.GetObject("IconTogglePlus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
