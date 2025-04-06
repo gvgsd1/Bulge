@@ -1,4 +1,5 @@
 ﻿using Bulge.Properties;
+using Bulge.Utility;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
 using Rhino;
@@ -71,7 +72,7 @@ namespace Bulge
 
         public override Guid ComponentGuid => new Guid("{16e575e1-4121-484b-927c-9dee132577b1}");
 
-        protected override Bitmap Icon => ResourcesCurve.CurveSegmentLength_24x24;
+        protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconCloseParallelCurves);
     }
 
 }

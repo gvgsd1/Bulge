@@ -2,11 +2,12 @@ bluge ideas
 
 DONE - canvas clean
 DONE - canvas default
-WIP - canvas custome
+DONE - canvas custome
 canvas rainbow
 
-slider with min and max input
+DONE - slider with min and max input
 gene pool with min max default input
+DONE - md slider with domain input
 md slider with multiple point
 
 vector picker
@@ -24,12 +25,11 @@ DONE - remap plus (with default 0 and 1)
 
 variable step series
 
-increment of a list
-decrement of a list
-multiplication increment of a list
-multiplication decrement of a list
+DONE - increment of a list
+DONE - multiplier of a list
 
-mass addition until a certain value
+
+DONE - mass addition until a certain value
 
 
 gradient with solid color
@@ -43,7 +43,7 @@ join ordered curve at end point
 
 group / ungroup with path
 
-split list allow negative index
+DONE - split list allow negative index
 
 path mapper with typing input
 
@@ -51,13 +51,20 @@ get curent file path
 
 mid wheel enable script
 
-first last tree branch
+DONE - first last tree branch
 
 first last tree branch at level
 
-first and rest tree branch
+DONE - first and rest tree branch
 
-last and rest tree branch
+DONE - last and rest tree branch
 
-split at nth tree branch
+DONE - split tree at index
 
+split tree at nth
+
+
+
+Extend curve with default 0 input
+
+sET POINTS Z

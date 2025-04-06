@@ -1,4 +1,6 @@
-﻿using Grasshopper.Kernel;
+﻿using Bulge.Properties;
+using Bulge.Utility;
+using Grasshopper.Kernel;
 using Rhino;
 using System;
 using System.Collections.Generic;
@@ -18,7 +20,7 @@ namespace Bulge
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGenericParameter("Input", "I", "Input values for mass division", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Cap", "C", "Cap Value", GH_ParamAccess.item, double.NaN);
+            pManager.AddNumberParameter("Cap", "C", "Cap Value", GH_ParamAccess.item, double.PositiveInfinity);
             pManager.AddIntegerParameter("Option", "O", "Options: 0 - Above & Include, 1 - Below & Include, 2 - Above, 3 - Below", GH_ParamAccess.item, 0);
         }
 
@@ -40,10 +42,10 @@ namespace Bulge
             if (inList.Count == 0)
                 return;
 
-            double cap = double.PositiveInfinity;
+            double cap = double.NaN;
             int option = int.MinValue;
 
-            if (!DA.GetData(1, ref cap) || !RhinoMath.IsValidDouble(cap))
+            if (!DA.GetData(1, ref cap))
                 return;
             if (!DA.GetData(2, ref option))
                 return;
@@ -109,7 +111,7 @@ namespace Bulge
         public override Guid ComponentGuid => new Guid("{542b75aa-3dc1-4d4d-b16c-636eaac4cb36}");
 
         public override GH_Exposure Exposure => GH_Exposure.secondary;
-        protected override Bitmap Icon => null;
+        protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconMassDivisionUntilValue);
     }
 
 }

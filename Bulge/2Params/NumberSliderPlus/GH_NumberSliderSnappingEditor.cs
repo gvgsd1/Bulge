@@ -14,7 +14,7 @@ namespace Bulge.Params.NumberSliderPlus
     [DesignerGenerated]
     public class GH_NumberSliderSnappingEditor : Form
     {
-        private IContainer components;
+        private IContainer components = null;
 
         public GH_NumberSliderSnappingEditor() => this.InitializeComponent();
 

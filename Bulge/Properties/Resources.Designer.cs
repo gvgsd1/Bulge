@@ -73,6 +73,16 @@ namespace Bulge.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconBulge_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("IconBulge_24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconCanvasClean {
             get {
                 object obj = ResourceManager.GetObject("IconCanvasClean", resourceCulture);
@@ -113,9 +123,129 @@ namespace Bulge.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconCloseParallelCurves {
+            get {
+                object obj = ResourceManager.GetObject("IconCloseParallelCurves", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconCullNthPlus {
+            get {
+                object obj = ResourceManager.GetObject("IconCullNthPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconFirstLastTreeBranch {
+            get {
+                object obj = ResourceManager.GetObject("IconFirstLastTreeBranch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconFirstRestTreeBranch {
+            get {
+                object obj = ResourceManager.GetObject("IconFirstRestTreeBranch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconLastRestTreeBranch {
+            get {
+                object obj = ResourceManager.GetObject("IconLastRestTreeBranch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconListIncrement {
+            get {
+                object obj = ResourceManager.GetObject("IconListIncrement", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconListMultiplier {
+            get {
+                object obj = ResourceManager.GetObject("IconListMultiplier", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconMassAdditionUntilValue {
+            get {
+                object obj = ResourceManager.GetObject("IconMassAdditionUntilValue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconMassDivisionUntilValue {
+            get {
+                object obj = ResourceManager.GetObject("IconMassDivisionUntilValue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconMassMultiplicationUntilValue {
+            get {
+                object obj = ResourceManager.GetObject("IconMassMultiplicationUntilValue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconMassSubtractionUntilValue {
+            get {
+                object obj = ResourceManager.GetObject("IconMassSubtractionUntilValue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconMDSliderPlus {
             get {
                 object obj = ResourceManager.GetObject("IconMDSliderPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconPartitionListPlus {
+            get {
+                object obj = ResourceManager.GetObject("IconPartitionListPlus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +283,39 @@ namespace Bulge.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconSplitListPlus {
+            get {
+                object obj = ResourceManager.GetObject("IconSplitListPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconSplitTreeAtIndex {
+            get {
+                object obj = ResourceManager.GetObject("IconSplitTreeAtIndex", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconTogglePlus {
             get {
                 object obj = ResourceManager.GetObject("IconTogglePlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconVectorFromAngle {
+            get {
+                object obj = ResourceManager.GetObject("IconVectorFromAngle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

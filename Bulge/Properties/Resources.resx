@@ -121,6 +121,9 @@
   <data name="IconBulge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconBulge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconBulge_24x24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconBulge_24x24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IconCanvasClean" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconCanvasClean.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -133,8 +136,44 @@
   <data name="IconCanvasDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconCanvasDefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconCloseParallelCurves" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconCloseParallelCurves.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconCullNthPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconCullNthPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconFirstLastTreeBranch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconFirstLastTreeBranch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconFirstRestTreeBranch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconFirstRestTreeBranch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconLastRestTreeBranch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconLastRestTreeBranch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconListIncrement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconListIncrement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconListMultiplier" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconListMultiplier.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconMassAdditionUntilValue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconMassAdditionUntilValue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconMassDivisionUntilValue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconMassDivisionUntilValue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconMassMultiplicationUntilValue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconMassMultiplicationUntilValue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconMassSubtractionUntilValue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconMassSubtractionUntilValue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IconMDSliderPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconMDSliderPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconPartitionListPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconPartitionListPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IconRemapPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconRemapPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,7 +184,16 @@
   <data name="IconSliderPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconSliderPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconSplitListPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconSplitListPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconSplitTreeAtIndex" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconSplitTreeAtIndex.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IconTogglePlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconTogglePlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconVectorFromAngle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconVectorFromAngle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

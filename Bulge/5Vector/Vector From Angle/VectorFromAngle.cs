@@ -13,7 +13,6 @@ namespace Bulge
 {
     public class VectorFromAngle : GH_Component
     {
-        private bool m_degrees;
 
         public VectorFromAngle()
           : base("Vector From Angle",
@@ -58,7 +57,7 @@ namespace Bulge
 
         }
 
-        protected override System.Drawing.Bitmap Icon => ResourcesVector.VectorRotate_24x24;
+        protected override System.Drawing.Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconVectorFromAngle);
 
         public override Guid ComponentGuid => new Guid("eae33f0e-c2a2-4f17-b363-f2804d733f82");
     }

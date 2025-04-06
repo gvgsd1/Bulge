@@ -121,7 +121,7 @@ namespace Bulge.Params.ButtonPlus
             GH_ComponentAttributes.LayoutInputParams(this.Owner, Bounds2);
             GH_ComponentAttributes.LayoutOutputParams(this.Owner, Bounds2);
 
-            rec_input_words.Inflate(-2f, -2f);
+            //rec_input_words.Inflate(-.1f, -.1f);
             rec_button.Inflate(-2f, -2f);
         }
 
@@ -150,21 +150,17 @@ namespace Bulge.Params.ButtonPlus
                     int zoomFadeLow = GH_Canvas.ZoomFadeLow;
                     GH_PaletteStyle impliedStyle = GH_CapsuleRenderEngine.GetImpliedStyle(GH_Palette.Normal, Selected, Owner.Locked, true);
                     GH_PaletteStyle paletteBlackStandard = GH_Skin.palette_black_standard;
-                    GH_Capsule capsule_bounds = GH_Capsule.CreateCapsule(Bounds, GH_Palette.Normal, 25, 0);
+                    GH_Capsule capsule_bounds = GH_Capsule.CreateCapsule(Bounds, GH_Palette.Normal, 11, 0);
                     capsule_bounds.Font = GH_FontServer.StandardAdjusted;
                     capsule_bounds.AddInputGrip(InputGrip.Y);
-                    //capsule_bounds.AddInputGrip(InputGrip.Y + 20);
+
                     capsule_bounds.AddOutputGrip(OutputGrip.Y);
                     Image icon = Owner.Icon_24x24;
-                    //capsule_bounds.Render(graphics, this.Selected, this.Owner.Locked, true);
-                    //capsule_bounds.Render(graphics, GH_Skin.palette_hidden_standard);
-                    //capsule_bounds.RenderEngine.RenderGrips(graphics);
-                    //capsule_bounds.RenderEngine.RenderBackground(graphics, canvas.Viewport.Zoom, GH_Skin.palette_hidden_standard);
-                    //Utility.UtilityRender.RenderOutlinesSimple(capsule_bounds, graphics, GH_Skin.palette_hidden_standard);
+
                     Utility.UtilityRender.Render(capsule_bounds, graphics, null, this.Selected, this.Owner.Locked, true);
                     capsule_bounds.Dispose();
 
-                    GH_Capsule input_capsule_bounds = GH_Capsule.CreateCapsule(rec_input_words, GH_Palette.Normal, 25, 0);
+                    GH_Capsule input_capsule_bounds = GH_Capsule.CreateCapsule(rec_input_words, GH_Palette.Normal, 11, 0);
                     input_capsule_bounds.Font = GH_FontServer.StandardAdjusted;
                     Utility.UtilityRender.Render(input_capsule_bounds, graphics, null, this.Selected, this.Owner.Locked, true);
                     input_capsule_bounds.Dispose();
@@ -179,7 +175,7 @@ namespace Bulge.Params.ButtonPlus
                         graphics.DrawString(Owner.NickName, GH_FontServer.StandardAdjusted, words_solidBrush, rec_words, GH_TextRenderingConstants.CenterCenter);
                         words_solidBrush.Dispose();
                     }
-                    GH_Capsule capsule_button = GH_Capsule.CreateCapsule(rec_button, GH_Palette.Black, 25, 0);
+                    GH_Capsule capsule_button = GH_Capsule.CreateCapsule(rec_button, GH_Palette.Black, 10, 0);
                     capsule_button.RenderEngine.RenderGrips(graphics);
 
                     if (Owner.ButtonDown)

@@ -25,27 +25,20 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <Compile Remove="2Params\ButtonPlus\GH_ButtonObject.cs" />
-    <Compile Remove="2Params\ButtonPlus\GH_ButtonObjectAttributes.cs" />
+    <Compile Remove="2Params\Slider\**" />
+    <EmbeddedResource Remove="2Params\Slider\**" />
+    <None Remove="2Params\Slider\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <Compile Remove="2Params\CreateGHNumberSlider.cs" />
     <Compile Remove="2Params\MyComponent1.cs" />
     <Compile Remove="2Params\MySimpleIntegerParameter.cs" />
     <Compile Remove="2Params\MySimpleIntegerParameterAttributes.cs" />
-    <Compile Remove="2Params\NumberSliderPlus\GH_NumberSlider_Backup.cs" />
-    <Compile Remove="2Params\Slider\backup\GH_NumberSlider1.cs" />
-    <Compile Remove="2Params\Slider\backup\GH_NumberSliderAttributes1.cs" />
-    <Compile Remove="2Params\Slider\backup\GH_NumberSliderAttributesBackup.cs" />
-    <Compile Remove="2Params\Slider\backup\GH_NumberSliderBackup.cs" />
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="2Params\ButtonPlus\GH_ButtonObject.cs" />
-    <None Include="2Params\ButtonPlus\GH_ButtonObjectAttributes.cs" />
-    <None Include="2Params\NumberSliderPlus\GH_NumberSlider_Backup.cs" />
-    <None Include="2Params\Slider\backup\GH_NumberSlider1.cs" />
-    <None Include="2Params\Slider\backup\GH_NumberSliderAttributes1.cs" />
-    <None Include="2Params\Slider\backup\GH_NumberSliderAttributesBackup.cs" />
-    <None Include="2Params\Slider\backup\GH_NumberSliderBackup.cs" />
+    <EmbeddedResource Remove="Utility\Res_ObjectIcons.resx" />
   </ItemGroup>
   
   <ItemGroup>
@@ -70,66 +63,38 @@
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" ExcludeAssets="runtime" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Properties\Icons.Designer.cs">
+    <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Icons.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\ResourcesVector.Designer.cs">
-      <DependentUpon>ResourcesVector.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Update="Properties\ResourcesMath.Designer.cs">
-      <DependentUpon>ResourcesMath.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Update="Properties\ResourcesCurve.Designer.cs">
-      <DependentUpon>ResourcesCurve.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Update="Properties\ResourcesOG.Designer.cs">
       <DependentUpon>ResourcesOG.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
+      <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Update="Properties\Icons.resx">
+    <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Icons.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Properties\ResourcesVector.resx">
-      <LastGenOutput>ResourcesVector.Designer.cs</LastGenOutput>
-      <Generator>ResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Properties\ResourcesMath.resx">
-      <LastGenOutput>ResourcesMath.Designer.cs</LastGenOutput>
-      <Generator>ResXFileCodeGenerator</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Properties\ResourcesCurve.resx">
-      <LastGenOutput>ResourcesCurve.Designer.cs</LastGenOutput>
-      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\ResourcesOG.resx">
       <SubType>Designer</SubType>
       <LastGenOutput>ResourcesOG.Designer.cs</LastGenOutput>
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="3Maths\List Increment\" />
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
   <Target Name="CopyPdbForMonoDebugging" AfterTargets="AfterBuild">

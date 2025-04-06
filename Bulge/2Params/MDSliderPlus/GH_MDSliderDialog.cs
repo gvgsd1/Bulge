@@ -16,7 +16,7 @@ namespace Bulge.Params.MDSliderPlus
     [DesignerGenerated]
     public class GH_MDSliderDialog : Form
     {
-        private IContainer components;
+        private IContainer components = null;
         private TextBox _txtXDomain;
         private TextBox _txtZDomain;
         private TextBox _txtYDomain;
