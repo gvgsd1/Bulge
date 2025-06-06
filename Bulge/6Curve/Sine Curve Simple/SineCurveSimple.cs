@@ -22,10 +22,18 @@ namespace Bulge
 
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
-            pManager.AddPointParameter("Start Point", "P", "Start Point", GH_ParamAccess.item, new Point3d(0, 0, 0));
-            pManager.AddVectorParameter("Direction Vector", "V", "Direction Vector", GH_ParamAccess.item, new Vector3d(1, 0, 0));
-            pManager.AddNumberParameter("Amplitude", "A", "Amplitude: ", GH_ParamAccess.item, 1);
-            pManager.AddNumberParameter("Wavelength", "W", "Extension length at end of curve", GH_ParamAccess.item, 1);
+
+            pManager.AddPointParameter("Start Point", "P", "Start Point", GH_ParamAccess.item, Point3d.Origin);
+            pManager.AddVectorParameter("Direction Vector", "V",
+                @"[Quick] Direction Vector. 
+                Used only if Direction Plane is NOT connected
+                Curve will be oriented based on this vector and the perpendicular vector that is in XY plane", GH_ParamAccess.item, Vector3d.XAxis);
+            pManager.AddPlaneParameter("Direction Plane", "Pl",
+                @"[Optional] Direction Plane. 
+                If connected, Direction Vector will be ignored. 
+                Plane has 2 direction vectors for precise orient", GH_ParamAccess.item, Plane.WorldXY);
+            pManager.AddNumberParameter("Amplitude", "A", "Amplitude of the sine wave. The largest y vlaue", GH_ParamAccess.item, 1);
+            pManager.AddNumberParameter("Wavelength", "W", "Wavelength is the x direciton span distance for 1 period", GH_ParamAccess.item, 1);
             pManager.AddNumberParameter("Length", "L", "Length of the bounding box in the wavelength direction. NOT the length of Wave", GH_ParamAccess.item, 10);
         }
 
@@ -41,28 +49,52 @@ namespace Bulge
             if (!DA.GetData(0, ref startPt))
                 return;
 
-            Vector3d direction = new Vector3d(1, 0, 0);
-            if (!DA.GetData(1, ref direction))
+            Vector3d directionVector = Vector3d.Unset;
+            if (!DA.GetData(1, ref directionVector))
                 return;
 
-            if (!direction.IsZero)
-                direction.Unitize();
+            Plane directionPlane = Plane.Unset;
+            Vector3d direction = Vector3d.Unset;
+
+            if (Params.Input[2].Sources.Count > 0)
+            {
+                if (!DA.GetData(2, ref directionPlane))
+                    return;
+                directionPlane.Origin = startPt;
+                direction = directionPlane.XAxis;
+            }
             else
             {
-                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Direction vector cannot be zero.");
-                return;
+                if (directionVector.IsZero)
+                {
+                    AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Direction vector cannot be zero.");
+                    return;
+                }
+
+                directionVector.Unitize();
+                if (directionVector != Vector3d.ZAxis)
+                {
+                    direction = directionVector;
+                    Vector3d direction2 = Vector3d.CrossProduct(direction, Vector3d.ZAxis);
+                    directionPlane = new Plane(startPt, direction, direction2);
+                }
+                else
+                {
+                    AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Direction vector cannot be Unit Z");
+                    return;
+                }
             }
 
             double amplitude = double.NaN;
-            if (!DA.GetData(2, ref amplitude))
+            if (!DA.GetData(3, ref amplitude))
                 return;
 
             double wavelength = double.NaN;
-            if (!DA.GetData(3, ref wavelength))
+            if (!DA.GetData(4, ref wavelength))
                 return;
 
             double length = double.NaN;
-            if (!DA.GetData(4, ref length))
+            if (!DA.GetData(5, ref length))
             {
                 return;
             }
@@ -71,8 +103,6 @@ namespace Bulge
                 AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid Length");
                 return;
             }
-
-            Point3d endPt = startPt + direction * length;
 
             List<Point3d> sinePts = new List<Point3d>();
             List<Point3d> pickPts = new List<Point3d>();
@@ -102,8 +132,8 @@ namespace Bulge
 
             List<Point3d> outPts = new List<Point3d>();
 
-            Plane sourcePlane = new Plane(Point3d.Origin, Vector3d.XAxis);
-            Plane targetPlane = new Plane(startPt, endPt - startPt);
+            Plane sourcePlane = Plane.WorldXY;
+            Plane targetPlane = directionPlane;
             Transform orient = Transform.PlaneToPlane(sourcePlane, targetPlane);
 
             for (int i = 0; i < pickPts.Count; i++)
@@ -140,10 +170,11 @@ namespace Bulge
             }
         }
 
+        public override GH_Exposure Exposure => GH_Exposure.secondary;
 
         public override Guid ComponentGuid => new Guid("{589f0cb3-1af5-4c17-b1e9-e22b1f8c0e8a}");
 
-        protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconTogglePlus);
+        protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconSineCurveSimple);
     }
 
 }

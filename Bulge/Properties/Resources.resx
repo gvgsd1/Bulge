@@ -136,14 +136,29 @@
   <data name="IconCanvasDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconCanvasDefault.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconCircleTanTanRadius" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconCircleTanTanRadius.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IconCloseParallelCurves" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconCloseParallelCurves.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IconCullNthPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconCullNthPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconCurrentFilePath" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconCurrentFilePath.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconCurrentFolderPath" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconCurrentFolderPath.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconExtendCurvePlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconExtendCurvePlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IconFirstLastTreeBranch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconFirstLastTreeBranch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconFirstLastTreeBranchAtLevel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconFirstLastTreeBranchAtLevel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IconFirstRestTreeBranch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconFirstRestTreeBranch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,11 +190,29 @@
   <data name="IconPartitionListPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconPartitionListPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconPathMapperPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconPathMapperPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="IconRemapPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconRemapPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IconRemapPlusPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconRemapPlusPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconSeriesPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconSeriesPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconSetPoints" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconSetPoints.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconSetPointsFromPoint" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconSetPointsFromPoint.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconSineCurve" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconSineCurve.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconSineCurveSimple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconSineCurveSimple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IconSliderPlus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconSliderPlus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

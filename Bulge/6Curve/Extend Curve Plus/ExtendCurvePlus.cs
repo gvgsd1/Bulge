@@ -116,9 +116,11 @@ namespace Bulge
             return crv.Extend(curveEnd, length, style) ?? crv;
         }
 
+        public override GH_Exposure Exposure => GH_Exposure.primary;
+
         public override Guid ComponentGuid => new Guid("{9fdb38b9-d02d-490d-bf28-68b146c9c7e5}");
 
-        protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconCloseParallelCurves);
+        protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconExtendCurvePlus);
     }
 
 }

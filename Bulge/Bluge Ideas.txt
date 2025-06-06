@@ -1,72 +1,50 @@
-bluge ideas
+Bulge Ideas
 
 DONE - canvas clean
 DONE - canvas default
 DONE - canvas custome
-canvas rainbow
-
 DONE - slider with min and max input
-gene pool with min max default input
 DONE - md slider with domain input
-md slider with multiple point
+DONE - vector from degree
+DONE - remap plus (with default 0 and 1)
+DONE - increment of a list
+DONE - multiplier of a list
+DONE - mass addition until a certain value
+DONE - Sine curve
+DONE - circle tan tan radius
+DONE - split list allow negative index
+DONE - path mapper with typing input
+DONE - get curent file path
+DONE - first last tree branch
+DONE - first last tree branch at level
+DONE - first and rest tree branch
+DONE - last and rest tree branch
+DONE - split tree at index
+DONE - Extend curve with default 0 input
+DONE - set point xyz
+DONE - variable step series
+
+canvas rainbow
 
 vector picker
 plane picker
-DONE - vector from degree
+md slider with multiple point
 
+split tree at nth
+mid wheel enable script
+display curve number sequence
+
+join ordered curve at end point
+
+group / ungroup with path
+gradient with solid color
+blur 2d numbers
+
+
+gene pool with min max default input
 gene pool of bool
 gene pool that change number
 gene pool that flip bool
 gene pool of color
 gene pool mix input
 
-DONE - remap plus (with default 0 and 1)
-
-
-variable step series
-
-DONE - increment of a list
-DONE - multiplier of a list
-
-
-DONE - mass addition until a certain value
-
-
-gradient with solid color
-blur 2d numbers
-
-Sine curve
-
-circle tan tan radius
-
-display curve number sequence
-
-join ordered curve at end point
-
-group / ungroup with path
-
-DONE - split list allow negative index
-
-DONE - path mapper with typing input
-
-DONE - get curent file path
-
-mid wheel enable script
-
-DONE - first last tree branch
-
-DONE - first last tree branch at level
-
-DONE - first and rest tree branch
-
-DONE - last and rest tree branch
-
-DONE - split tree at index
-
-split tree at nth
-
-
-
-DONE - Extend curve with default 0 input
-
-sET POINTS Z

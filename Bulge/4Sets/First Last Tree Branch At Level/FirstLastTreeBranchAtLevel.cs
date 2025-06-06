@@ -14,7 +14,7 @@ namespace Bulge
     public class FirstLastTreeBranchAtLevel : GH_Component
     {
         public FirstLastTreeBranchAtLevel()
-          : base("First Last Tree Branch At Level", "First Last Tree Branch At Level", "First Last Tree Branch At Level", "Bulge",
+          : base("First Last Tree Branch At Level", "First Last Tree Branch At Level", "First Last Tree Branch At Level. eg. {0; 1; *}, * means wild card", "Bulge",
                 SubCategoryName.SETS)
         {
         }
@@ -137,7 +137,7 @@ namespace Bulge
 
         public override GH_Exposure Exposure => GH_Exposure.tertiary;
 
-        protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconFirstLastTreeBranch);
+        protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconFirstLastTreeBranchAtLevel);
     }
 
 }

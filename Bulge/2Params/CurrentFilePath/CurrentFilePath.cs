@@ -47,7 +47,7 @@ namespace Bulge
 
         public override GH_Exposure Exposure => GH_Exposure.tertiary;
 
-        protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconFirstLastTreeBranch);
+        protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconCurrentFilePath);
     }
 
 }

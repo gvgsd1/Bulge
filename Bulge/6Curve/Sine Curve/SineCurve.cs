@@ -20,13 +20,20 @@ namespace Bulge
         protected override void RegisterInputParams(GH_InputParamManager pManager)
         {
             pManager.AddPointParameter("Start Point", "P", "Start Point", GH_ParamAccess.item, Point3d.Origin);
-            pManager.AddVectorParameter("Direction Vector", "V", "Quick Direction Vector. Used only if Direction Plane is not connected", GH_ParamAccess.item, Vector3d.XAxis);
-            pManager.AddPlaneParameter("Direction Plane", "Pl", "[Optional] Direction Plane ", GH_ParamAccess.item, Plane.WorldXY);
-            pManager.AddNumberParameter("Amplitude", "A", "Amplitude", GH_ParamAccess.item, 1);
-            pManager.AddNumberParameter("Wavelength", "W", "Extension length at end of curve", GH_ParamAccess.item, 1);
+            pManager.AddVectorParameter("Direction Vector", "V", 
+                @"[Quick] Direction Vector. 
+                Used only if Direction Plane is NOT connected
+                Curve will be oriented based on this vector and the perpendicular vector that is in XY plane", GH_ParamAccess.item, Vector3d.XAxis);
+            pManager.AddPlaneParameter("Direction Plane", "Pl",
+                @"[Optional] Direction Plane. 
+                If connected, Direction Vector will be ignored. 
+                Plane has 2 direction vectors for precise orient", GH_ParamAccess.item, Plane.WorldXY);
+            pManager.AddNumberParameter("Amplitude", "A", "Amplitude of the sine wave. The largest y vlaue", GH_ParamAccess.item, 1);
+            pManager.AddNumberParameter("Wavelength", "W", "Wavelength is the x direciton span distance for 1 period", GH_ParamAccess.item, 1);
             pManager.AddNumberParameter("Length", "L", "Length of the bounding box in the wavelength direction. NOT the length of Wave", GH_ParamAccess.item, 10);
             pManager.AddNumberParameter("Point Density", "D", "Distance between points in the wavelength direction", GH_ParamAccess.item, 0.05);
-            pManager[2].Optional = true;
+            //pManager[2].Optional = true;
+            //pManager.HideParameter(2);
         }
 
         protected override void RegisterOutputParams(GH_OutputParamManager pManager)
@@ -70,7 +77,6 @@ namespace Bulge
                     return;
                 }
             }
-
 
             if (!direction.IsZero)
                 direction.Unitize();
@@ -149,10 +155,11 @@ namespace Bulge
             }
         }
 
+        public override GH_Exposure Exposure => GH_Exposure.secondary;
 
         public override Guid ComponentGuid => new Guid("{b6fc6ddc-9066-4261-9f06-52e350b608c5}");
 
-        protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconTogglePlus);
+        protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconSineCurve);
     }
 
 }

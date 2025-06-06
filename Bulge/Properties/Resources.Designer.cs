@@ -123,6 +123,16 @@ namespace Bulge.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconCircleTanTanRadius {
+            get {
+                object obj = ResourceManager.GetObject("IconCircleTanTanRadius", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconCloseParallelCurves {
             get {
                 object obj = ResourceManager.GetObject("IconCloseParallelCurves", resourceCulture);
@@ -143,9 +153,49 @@ namespace Bulge.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconCurrentFilePath {
+            get {
+                object obj = ResourceManager.GetObject("IconCurrentFilePath", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconCurrentFolderPath {
+            get {
+                object obj = ResourceManager.GetObject("IconCurrentFolderPath", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconExtendCurvePlus {
+            get {
+                object obj = ResourceManager.GetObject("IconExtendCurvePlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconFirstLastTreeBranch {
             get {
                 object obj = ResourceManager.GetObject("IconFirstLastTreeBranch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconFirstLastTreeBranchAtLevel {
+            get {
+                object obj = ResourceManager.GetObject("IconFirstLastTreeBranchAtLevel", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,6 +303,16 @@ namespace Bulge.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IconPathMapperPlus {
+            get {
+                object obj = ResourceManager.GetObject("IconPathMapperPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap IconRemapPlus {
             get {
                 object obj = ResourceManager.GetObject("IconRemapPlus", resourceCulture);
@@ -266,6 +326,56 @@ namespace Bulge.Properties {
         internal static System.Drawing.Bitmap IconRemapPlusPlus {
             get {
                 object obj = ResourceManager.GetObject("IconRemapPlusPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconSeriesPlus {
+            get {
+                object obj = ResourceManager.GetObject("IconSeriesPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconSetPoints {
+            get {
+                object obj = ResourceManager.GetObject("IconSetPoints", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconSetPointsFromPoint {
+            get {
+                object obj = ResourceManager.GetObject("IconSetPointsFromPoint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconSineCurve {
+            get {
+                object obj = ResourceManager.GetObject("IconSineCurve", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IconSineCurveSimple {
+            get {
+                object obj = ResourceManager.GetObject("IconSineCurveSimple", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

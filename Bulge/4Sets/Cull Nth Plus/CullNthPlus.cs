@@ -137,7 +137,7 @@ namespace Bulge
 
         public override Guid ComponentGuid => new Guid("{9e27debb-5e86-4606-973b-d9f0038d9a9f}");
 
-        public override GH_Exposure Exposure => GH_Exposure.secondary;
+        public override GH_Exposure Exposure => GH_Exposure.primary;
 
         protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconCullNthPlus);
     }

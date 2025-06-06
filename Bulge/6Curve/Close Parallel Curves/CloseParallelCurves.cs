@@ -70,6 +70,8 @@ namespace Bulge
             DA.SetDataList(0, joinedCurves);
         }
 
+        public override GH_Exposure Exposure => GH_Exposure.primary;
+
         public override Guid ComponentGuid => new Guid("{16e575e1-4121-484b-927c-9dee132577b1}");
 
         protected override Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconCloseParallelCurves);

@@ -57,6 +57,8 @@ namespace Bulge
 
         }
 
+        public override GH_Exposure Exposure => GH_Exposure.secondary;
+
         protected override System.Drawing.Bitmap Icon => UtilityIcon.ResizeIcon(Resources.IconVectorFromAngle);
 
         public override Guid ComponentGuid => new Guid("eae33f0e-c2a2-4f17-b363-f2804d733f82");
